@@ -1,0 +1,950 @@
+{
+  "users": [
+    {
+      "email": "dinhquoctai2003@gmail.com",
+      "password": "$2a$10$Xdy8rso/9BitJ38raIMK/.9i8suwYfggWt9EBt1QrDPFkv9rG2ueC",
+      "role": "admin",
+      "confirmPassword": "dinhquoctai",
+      "phone": 987683596,
+      "id": 1
+    },
+    {
+      "email": "dinhquoctai20031@gmail.com",
+      "password": "$2a$10$23iJQeNGixMn5BjY3cK1XenlWeUhkRdevCSDNeSEq47lo8pyFctZm",
+      "role": "member",
+      "confirmPassword": "dinhquoctai",
+      "phone": 987683596,
+      "id": 2
+    },
+    {
+      "email": "dinhquoctai200312@gmail.com",
+      "password": "$2a$10$tqrBVRbQW9h11Qw0DzzatenFLjtgI0aoWKmAGzfIuZxDlOaNhR02m",
+      "role": "member",
+      "confirmPassword": "dinhquoctai",
+      "phone": 987683596,
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Samsung Galaxy S23 Ultra",
+      "price": 25990000,
+      "original_price": 31990000,
+      "description": "Chuẩn nét đẹp được thiết lập mới trên thế hệ  sắc màu thiên nhiên tinh tế: Xanh Botanic, Tím Lilac, Kem Cotton và Đen Phantom được chế tác bởi công nghệ hàng đầu, thổi hồn vào từng siêu phẩm một cách nhẹ nhàng nhưng vẫn rất đẳng cấp. Từng đường nét không phô trương nhưng vẫn khoe trọn vẻ đẹp thanh lịch và sang trọng cho từng chi tiết. Đồng thời, khung viền kim loại chắc chắn kết hợp thiết kế đối xứng đậm chất Ultra mạnh mẽ, còn là tâm điểm cho đại diện hàng đầu",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/43/35/ca/4630727d5a4eee189dc3dacae0bf39d7.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/43/35/ca/4630727d5a4eee189dc3dacae0bf39d7.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/43/35/ca/4630727d5a4eee189dc3dacae0bf39d7.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/43/35/ca/4630727d5a4eee189dc3dacae0bf39d7.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/43/35/ca/4630727d5a4eee189dc3dacae0bf39d7.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/6e/44/b5/04d9e0950060436a08e391205e25ea4c.png",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/6e/44/b5/04d9e0950060436a08e391205e25ea4c.png",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/6e/44/b5/04d9e0950060436a08e391205e25ea4c.png",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/6e/44/b5/04d9e0950060436a08e391205e25ea4c.png",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/6e/44/b5/04d9e0950060436a08e391205e25ea4c.png"
+        }
+      ],
+      "brand": {
+        "id": 18802,
+        "name": "Samsung",
+        "slug": "samsung"
+      },
+      "specifications": [
+        {
+          "name": "Content",
+          "attributes": [
+            {
+              "code": "battery_capacity",
+              "name": "Dung lượng pin",
+              "value": "5000 mAh"
+            },
+            {
+              "code": "bluetooth",
+              "name": "Bluetooth",
+              "value": "v5.3"
+            },
+            {
+              "code": "brand",
+              "name": "Thương hiệu",
+              "value": "Samsung"
+            },
+            {
+              "code": "brand_country",
+              "name": "Xuất xứ thương hiệu",
+              "value": "Hàn Quốc"
+            },
+            {
+              "code": "camera_sau",
+              "name": "Camera sau",
+              "value": "Chính 200 MP & Phụ 12 MP, 10 MP, 10 MP"
+            },
+            {
+              "code": "camera_truoc",
+              "name": "Camera trước",
+              "value": "12 MP"
+            },
+            {
+              "code": "cart_slot",
+              "name": "Hỗ trợ thẻ nhớ ngoài",
+              "value": "Không"
+            },
+            {
+              "code": "chip_do_hoa",
+              "name": "Chip đồ họa (GPU)",
+              "value": "Adreno 740"
+            },
+            {
+              "code": "chip_set",
+              "name": "Chip set",
+              "value": "Snapdragon 8 Gen 2 8 nhân"
+            },
+            {
+              "code": "chuc_nang_khac",
+              "name": "Chức năng khác",
+              "value": "Sạc siêu nhanh 2.0 45W, Chia sẻ pin không dây"
+            },
+            {
+              "code": "connect_nfc",
+              "name": "NFC",
+              "value": "Có"
+            },
+            {
+              "code": "cpu_speed",
+              "name": "Tốc độ CPU",
+              "value": "1 nhân 3.36 GHz, 4 nhân 2.8 GHz & 3 nhân 2 GHz"
+            },
+            {
+              "code": "den_flash",
+              "name": "Đèn Flash",
+              "value": "Có"
+            },
+            {
+              "code": "dimensions",
+              "name": "Kích thước",
+              "value": "Dài 163.4 mm - Ngang 78.1 mm - Dày 8.9 mm"
+            },
+            {
+              "code": "display_type",
+              "name": "Loại/ Công nghệ màn hình",
+              "value": "Infinity-O, Dynamic AMOLED 2X (1~120Hz)"
+            },
+            {
+              "code": "gps",
+              "name": "GPS",
+              "value": "GPS\n-\nGLONASS\n-\nGALILEO\n-\nBEIDOU"
+            },
+            {
+              "code": "ho_tro_4g",
+              "name": "Hỗ trợ 4G",
+              "value": "Có"
+            },
+            {
+              "code": "ho_tro_5g",
+              "name": "Hỗ trợ 5G",
+              "value": "Có"
+            },
+            {
+              "code": "included_accessories",
+              "name": "Phụ kiện đi kèm",
+              "value": "Cáp Type C, Cây lấy sim, Hộp, Sách hướng dẫn"
+            },
+            {
+              "code": "item_model_number",
+              "name": "Model",
+              "value": "Galaxy S23 Ultra 5G"
+            },
+            {
+              "code": "jack_headphone",
+              "name": "Jack tai nghe",
+              "value": "Type-C"
+            },
+            {
+              "code": "khe_sim",
+              "name": "Số sim",
+              "value": "2"
+            },
+            {
+              "code": "loai_pin",
+              "name": "Loại pin",
+              "value": "Li-Ion"
+            },
+            {
+              "code": "loai_sim",
+              "name": "Loại Sim",
+              "value": "2 Nano SIM hoặc 1 Nano SIM + 1 eSIM"
+            },
+            {
+              "code": "material",
+              "name": "Chất liệu",
+              "value": "Khung nhôm & Mặt lưng kính cường lực"
+            },
+            {
+              "code": "nghe_nhac",
+              "name": "Nghe nhạc",
+              "value": "WAV\n-\nAAC\n-\nOGG\n-\nMP3\n-\nAMR\n-\nMidi\n-\nM4A"
+            },
+            {
+              "code": "origin",
+              "name": "Xuất xứ",
+              "value": "Việt Nam"
+            },
+            {
+              "code": "pin_co_the_thao_roi",
+              "name": "Pin có thể tháo rời",
+              "value": "Pin liền thân máy"
+            },
+            {
+              "code": "port_sac",
+              "name": "Cổng sạc",
+              "value": "Type-C"
+            },
+            {
+              "code": "product_weight",
+              "name": "Trọng lượng sản phẩm",
+              "value": "223 g"
+            },
+            {
+              "code": "quay_phim",
+              "name": "Quay phim",
+              "value": "FullHD 1080p@240fps\n-\nFullHD 1080p@60fps\n-\nFullHD 1080p@30fps\n-\n4K 2160p@30fps\n-\n4K 2160p@60fps\n-\n8K 4320p@30fps\n-\nHD 720p@960fps"
+            },
+            {
+              "code": "ram",
+              "name": "RAM",
+              "value": "8GB"
+            },
+            {
+              "code": "resolution",
+              "name": "Độ phân giải",
+              "value": " 2K+ (1440 x 3088 Pixels)"
+            },
+            {
+              "code": "rom",
+              "name": "ROM",
+              "value": "256GB"
+            },
+            {
+              "code": "screen_size",
+              "name": "Kích thước màn hình",
+              "value": "6.8 inch"
+            },
+            {
+              "code": "tinh_nang_camera",
+              "name": "Tính năng camera",
+              "value": "Quay Siêu chậm (Super Slow Motion)\n-\nChuyên nghiệp (Pro)\n-\nTự động lấy nét (AF)\n-\nHDR\n-\nToàn cảnh (Panorama)\n-\nẢnh Raw\n-\nBan đêm (Night Mode)\n-\nZoom quang học\n-\nLàm đẹp\n-\nLive Photo\n-\nBộ lọc màu\n-\nTrôi nhanh thời gian (Time Lapse)\n-\nGóc siêu rộng (Ultrawide)\n-\nGóc rộng (Wide)\n-\nQuay chậm (Slow Motion)\n-\nXóa phông\n-\nZoom kỹ thuật số\n-\nChống rung quang học (OIS)"
+            },
+            {
+              "code": "video_call",
+              "name": "Video call",
+              "value": "Gọi qua ứng dụng Zalo, Messenger,…"
+            },
+            {
+              "code": "wifi",
+              "name": "Wifi",
+              "value": "Wi-Fi Direct\n-\nDual-band (2.4 GHz/5 GHz)\n-\nWi-Fi 802.11 a/b/g/n/ac/ax\n-\n6 GHz"
+            },
+            {
+              "code": "xem_phim",
+              "name": "Xem phim",
+              "value": "MP4\n-\n3GP\n-\nAVI\n-\nMKV\n-\nFLV"
+            }
+          ]
+        },
+        {
+          "name": "Operation",
+          "attributes": [
+            {
+              "code": "vat_taxable",
+              "name": "Có thuế VAT",
+              "value": "Có"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "iPhone 14 Pro Max",
+      "price": 27750000,
+      "original_price": 33990000,
+      "description": "iPhone 14 Pro Max. Bắt trọn chi tiết ấn tượng với Camera Chính 48MP. Trải nghiệm iPhone theo cách hoàn toàn mới với Dynamic Island và màn hình Luôn Bật. ",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/0c/dd/e7/e6431984901119a1f8166cc4e579da93.png",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/0c/dd/e7/e6431984901119a1f8166cc4e579da93.png",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/0c/dd/e7/e6431984901119a1f8166cc4e579da93.png",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/0c/dd/e7/e6431984901119a1f8166cc4e579da93.png",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/0c/dd/e7/e6431984901119a1f8166cc4e579da93.png"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg"
+        }
+      ],
+      "brand": {
+        "id": 17827,
+        "name": "Apple",
+        "slug": "apple"
+      },
+      "specifications": [
+        {
+          "name": "Content",
+          "attributes": [
+            {
+              "code": "brand",
+              "name": "Thương hiệu",
+              "value": "Apple"
+            },
+            {
+              "code": "brand_country",
+              "name": "Xuất xứ thương hiệu",
+              "value": "Mỹ"
+            },
+            {
+              "code": "camera_sau",
+              "name": "Camera sau",
+              "value": "Chính 48 MP &amp; Phụ 12 MP, 12 MP"
+            },
+            {
+              "code": "camera_truoc",
+              "name": "Camera trước",
+              "value": "12 MP"
+            },
+            {
+              "code": "chip_set",
+              "name": "Chip set",
+              "value": "A16"
+            },
+            {
+              "code": "dimensions",
+              "name": "Kích thước",
+              "value": "Dài 164 mm - Ngang 75.4 mm - Dày 7.9 mm"
+            },
+            {
+              "code": "display_type",
+              "name": "Loại/ Công nghệ màn hình",
+              "value": "OLED"
+            },
+            {
+              "code": "ho_tro_5g",
+              "name": "Hỗ trợ 5G",
+              "value": "Có"
+            },
+            {
+              "code": "khe_sim",
+              "name": "Số sim",
+              "value": "2 sim"
+            },
+            {
+              "code": "loai_sim",
+              "name": "Loại Sim",
+              "value": "1 Nano SIM và 1 eSIM hoặc 2 eSIM"
+            },
+            {
+              "code": "origin",
+              "name": "Xuất xứ",
+              "value": "Trung Quốc"
+            },
+            {
+              "code": "product_weight",
+              "name": "Trọng lượng sản phẩm",
+              "value": "175g"
+            },
+            {
+              "code": "ram",
+              "name": "RAM",
+              "value": "6GB, Bionic 6 nhân"
+            },
+            {
+              "code": "screen_size",
+              "name": "Kích thước màn hình",
+              "value": "6.7 inch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "price": 10790000,
+      "original_price": 12990000,
+      "name": "Apple iPhone 11",
+      "description": "Quay video 4K, chụp ảnh chân dung tuyệt đẹp và chụp phong cảnh rộng với hệ thống camera kép hoàn toàn mới. Chụp ảnh tối ưu trong điều kiện ánh sáng yếu với chế độ Ban Đêm. Xem ảnh, video và chơi game với màu sắc chân thực trên màn hình Liquid Retina 6.1 inch.Trải nghiệm hiệu năng tuyệt vời với chip A13 Bionic dành cho game, thực tế ảo tăng cường (AR) và chụp ảnh.",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/a1/cd/ce/84a16c41ac07ce50d754e44a16ecbd1c.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/a1/cd/ce/84a16c41ac07ce50d754e44a16ecbd1c.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/a1/cd/ce/84a16c41ac07ce50d754e44a16ecbd1c.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/a1/cd/ce/84a16c41ac07ce50d754e44a16ecbd1c.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/a1/cd/ce/84a16c41ac07ce50d754e44a16ecbd1c.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/10/ab/e3/23f4e6f5158161a89c63623dc088be40.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/10/ab/e3/23f4e6f5158161a89c63623dc088be40.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/10/ab/e3/23f4e6f5158161a89c63623dc088be40.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/10/ab/e3/23f4e6f5158161a89c63623dc088be40.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/10/ab/e3/23f4e6f5158161a89c63623dc088be40.jpg"
+        }
+      ],
+      "brand": {
+        "id": 17827,
+        "name": "Apple",
+        "slug": "apple"
+      },
+      "specifications": [
+        {
+          "name": "Content",
+          "attributes": [
+            {
+              "code": "bang_tan_2g",
+              "name": "Băng tần 2G",
+              "value": "Có"
+            },
+            {
+              "code": "bang_tan_3g",
+              "name": "Băng tần 3G",
+              "value": "Có"
+            },
+            {
+              "code": "bluetooth",
+              "name": "Bluetooth",
+              "value": "v5.0"
+            },
+            {
+              "code": "brand",
+              "name": "Thương hiệu",
+              "value": "Apple"
+            },
+            {
+              "code": "brand_country",
+              "name": "Xuất xứ thương hiệu",
+              "value": "Mỹ"
+            },
+            {
+              "code": "camera_sau",
+              "name": "Camera sau",
+              "value": "Dual Camera 12.0 MP"
+            },
+            {
+              "code": "camera_truoc",
+              "name": "Camera trước",
+              "value": "12 MP"
+            },
+            {
+              "code": "chip_do_hoa",
+              "name": "Chip đồ họa (GPU)",
+              "value": "Apple GPU 4 nhân"
+            },
+            {
+              "code": "chip_set",
+              "name": "Chip set",
+              "value": "Apple A13 Bionic"
+            },
+            {
+              "code": "chuc_nang_khac",
+              "name": "Chức năng khác",
+              "value": "Hỗ trợ sạc nhanh, chống nước chuẩn IP67, Face ID"
+            },
+            {
+              "code": "connect_nfc",
+              "name": "NFC",
+              "value": "Có"
+            },
+            {
+              "code": "den_flash",
+              "name": "Đèn Flash",
+              "value": "Có"
+            },
+            {
+              "code": "dimensions",
+              "name": "Kích thước",
+              "value": "<p>150.9 x 75.7 x 8.3 mm</p>"
+            },
+            {
+              "code": "display_type",
+              "name": "Loại/ Công nghệ màn hình",
+              "value": "\tIPS LCD/ Liquid Retina HD"
+            },
+            {
+              "code": "fm_radio",
+              "name": "FM radio",
+              "value": "Không"
+            },
+            {
+              "code": "ghi_am",
+              "name": "Ghi âm",
+              "value": "Có"
+            },
+            {
+              "code": "gps",
+              "name": "GPS",
+              "value": "A-GPS, GLONASS"
+            },
+            {
+              "code": "ho_tro_4g",
+              "name": "Hỗ trợ 4G",
+              "value": "Có"
+            },
+            {
+              "code": "included_accessories",
+              "name": "Phụ kiện đi kèm",
+              "value": "<p>Cáp sạc + Sách HDSD </p>"
+            },
+            {
+              "code": "jack_headphone",
+              "name": "Jack tai nghe",
+              "value": "Lightning"
+            },
+            {
+              "code": "khe_sim",
+              "name": "Số sim",
+              "value": "1"
+            },
+            {
+              "code": "loai_pin",
+              "name": "Loại pin",
+              "value": "\t3110 mAh"
+            },
+            {
+              "code": "loai_sim",
+              "name": "Loại Sim",
+              "value": "1 Nano SIM  , 1 esim"
+            },
+            {
+              "code": "nghe_nhac",
+              "name": "Nghe nhạc",
+              "value": "Có"
+            },
+            {
+              "code": "pin_co_the_thao_roi",
+              "name": "Pin có thể tháo rời",
+              "value": "Pin liền"
+            },
+            {
+              "code": "port_sac",
+              "name": "Cổng sạc",
+              "value": "Lightning"
+            },
+            {
+              "code": "product_weight",
+              "name": "Trọng lượng sản phẩm",
+              "value": "194 g"
+            },
+            {
+              "code": "quay_phim",
+              "name": "Quay phim",
+              "value": "2160p@24/30/60fps, 1080p@30/60/120/240fps, HDR, stereo sound rec."
+            },
+            {
+              "code": "ram",
+              "name": "RAM",
+              "value": "4GB"
+            },
+            {
+              "code": "resolution",
+              "name": "Độ phân giải",
+              "value": "HD (828 x 1792 pixels)"
+            },
+            {
+              "code": "rom",
+              "name": "ROM",
+              "value": "64GB"
+            },
+            {
+              "code": "screen_size",
+              "name": "Kích thước màn hình",
+              "value": "6.1 inch"
+            },
+            {
+              "code": "tinh_nang_camera",
+              "name": "Tính năng camera",
+              "value": "Selfie ngược sáng HDR, Camera góc rộng, Nhận diện khuôn mặt, Zoom quang học, Chụp ảnh xóa phông, A.I Camera, HDR, Panorama, Chống rung quang học"
+            },
+            {
+              "code": "wifi",
+              "name": "Wifi",
+              "value": "802.11ac"
+            },
+            {
+              "code": "xem_phim",
+              "name": "Xem phim",
+              "value": "Có"
+            }
+          ]
+        },
+        {
+          "name": "Operation",
+          "attributes": [
+            {
+              "code": "vat_taxable",
+              "name": "Có thuế VAT",
+              "value": "Có"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "price": 7190000,
+      "original_price": 10990000,
+      "name": "Apple iPad 10.2-inch (9th Gen) Wi-Fi, 2021",
+      "description": "Mạnh mẽ. Dễ sử dụng. Linh hoạt. iPad có màn hình Retina 10.2 inch tuyệt đẹp, chip A13 Bionic mạnh mẽ, camera trước Ultra Wide có tính năng Trung Tâm Màn Hình, tương thích với Apple Pencil và Smart Keyboard.1 iPad giúp bạn dễ dàng làm được nhiều việc hơn nữa. Tất cả tính năng với mức giá ấn tượng.",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/54/ff/25/bfdf0febe11a28eaa7cd3fa735a82c49.png",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/54/ff/25/bfdf0febe11a28eaa7cd3fa735a82c49.png",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/54/ff/25/bfdf0febe11a28eaa7cd3fa735a82c49.png",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/54/ff/25/bfdf0febe11a28eaa7cd3fa735a82c49.png",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/54/ff/25/bfdf0febe11a28eaa7cd3fa735a82c49.png"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/91/8e/0f/3d91c418c952c8bad2fb52e7d34eb2c8.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/91/8e/0f/3d91c418c952c8bad2fb52e7d34eb2c8.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/91/8e/0f/3d91c418c952c8bad2fb52e7d34eb2c8.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/91/8e/0f/3d91c418c952c8bad2fb52e7d34eb2c8.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/91/8e/0f/3d91c418c952c8bad2fb52e7d34eb2c8.jpg"
+        }
+      ],
+      "brand": {
+        "id": 17827,
+        "name": "Apple",
+        "slug": "apple"
+      },
+      "specifications": [
+        {
+          "name": "Content",
+          "attributes": [
+            {
+              "code": "bluetooth",
+              "name": "Bluetooth",
+              "value": "v4.2"
+            },
+            {
+              "code": "brand",
+              "name": "Thương hiệu",
+              "value": "Apple"
+            },
+            {
+              "code": "brand_country",
+              "name": "Xuất xứ thương hiệu",
+              "value": "Mỹ"
+            },
+            {
+              "code": "camera_sau",
+              "name": "Camera sau",
+              "value": "8.0MP"
+            },
+            {
+              "code": "camera_truoc",
+              "name": "Camera trước",
+              "value": "12.0 MP"
+            },
+            {
+              "code": "chip_do_hoa",
+              "name": "Chip đồ họa (GPU)",
+              "value": "Apple GPU 4 nhân"
+            },
+            {
+              "code": "chip_set",
+              "name": "Chip set",
+              "value": "A13 Bionic"
+            },
+            {
+              "code": "cpu_speed",
+              "name": "Tốc độ CPU",
+              "value": "4 x 2.5 GHz Vortex + 4 x 1.6 GHz Tempest"
+            },
+            {
+              "code": "dimensions",
+              "name": "Kích thước",
+              "value": "250 x 174 x 7.5 mm"
+            },
+            {
+              "code": "display_type",
+              "name": "Loại/ Công nghệ màn hình",
+              "value": "IPS LCD"
+            },
+            {
+              "code": "included_accessories",
+              "name": "Phụ kiện đi kèm",
+              "value": "Cáp, sách hướng dẫn"
+            },
+            {
+              "code": "loai_pin",
+              "name": "Loại pin",
+              "value": "Lithium polymer"
+            },
+            {
+              "code": "material",
+              "name": "Chất liệu",
+              "value": "Hợp kim nhôm"
+            },
+            {
+              "code": "origin",
+              "name": "Xuất xứ",
+              "value": "Trung Quốc"
+            },
+            {
+              "code": "product_weight",
+              "name": "Trọng lượng sản phẩm",
+              "value": "490g"
+            },
+            {
+              "code": "ram",
+              "name": "RAM",
+              "value": "3GB"
+            },
+            {
+              "code": "resolution",
+              "name": "Độ phân giải",
+              "value": "2048 x 1536 pixels"
+            },
+            {
+              "code": "rom",
+              "name": "ROM",
+              "value": "64 GB"
+            },
+            {
+              "code": "tinh_nang_camera",
+              "name": "Tính năng camera",
+              "value": "HDR, Tự động lấy nét, Panorama, Quay Slow Motion, ISO Setting, Zoom Kỹ thuật số, Cài đặt cân bằng trắng, Gắn thẻ ảnh địa lý, Phát hiện khuôn mặt"
+            },
+            {
+              "code": "wifi",
+              "name": "Wifi",
+              "value": "802.11 b/g/n/ac - dual bands (2.4GHz + 5GHz)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "price": 12650000,
+      "original_price": 14990000,
+      "name": "Apple iPad mini (6th Gen) Wi-Fi, 2021",
+      "description": "Chip A15 Bionic mạnh mẽ với Neural Engine. Camera trước Ultra Wide 12MP với tính năng Trung Tâm Màn Hình. Cổng kết nối USB-C. 5G siêu nhanh. Ghi chú, đánh dấu tài liệu hoặc nắm bắt ngay khi những ý tưởng lớn xuất hiện trong đầu với Apple Pencil (thế hệ thứ 2). Bút gắn kết bằng nam châm và sạc không dây.",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/70/e7/82/37fd62ed4c7a81f14f017fc890792474.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/70/e7/82/37fd62ed4c7a81f14f017fc890792474.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/70/e7/82/37fd62ed4c7a81f14f017fc890792474.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/70/e7/82/37fd62ed4c7a81f14f017fc890792474.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/70/e7/82/37fd62ed4c7a81f14f017fc890792474.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/32/e3/02/59622448d6e5f1ecf44525234e9bab66.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/32/e3/02/59622448d6e5f1ecf44525234e9bab66.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/32/e3/02/59622448d6e5f1ecf44525234e9bab66.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/32/e3/02/59622448d6e5f1ecf44525234e9bab66.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/32/e3/02/59622448d6e5f1ecf44525234e9bab66.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/ff/0d/39/6756f31b553b086104923338a540ee7a.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/ff/0d/39/6756f31b553b086104923338a540ee7a.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/ff/0d/39/6756f31b553b086104923338a540ee7a.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/ff/0d/39/6756f31b553b086104923338a540ee7a.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/ff/0d/39/6756f31b553b086104923338a540ee7a.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/e1/49/d6/10df55b79121f3b0b67ae26802fe2c68.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/e1/49/d6/10df55b79121f3b0b67ae26802fe2c68.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/e1/49/d6/10df55b79121f3b0b67ae26802fe2c68.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/e1/49/d6/10df55b79121f3b0b67ae26802fe2c68.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/e1/49/d6/10df55b79121f3b0b67ae26802fe2c68.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/6f/3c/57/26d5a4fe67248e418e265bdb503afb23.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/6f/3c/57/26d5a4fe67248e418e265bdb503afb23.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/6f/3c/57/26d5a4fe67248e418e265bdb503afb23.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/6f/3c/57/26d5a4fe67248e418e265bdb503afb23.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/6f/3c/57/26d5a4fe67248e418e265bdb503afb23.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/5e/6a/78/68dd6633628f92b11aa097abe97a177d.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/5e/6a/78/68dd6633628f92b11aa097abe97a177d.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/5e/6a/78/68dd6633628f92b11aa097abe97a177d.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/5e/6a/78/68dd6633628f92b11aa097abe97a177d.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/5e/6a/78/68dd6633628f92b11aa097abe97a177d.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/d7/6e/48/10540720a36809854196e73f987e9ad5.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/d7/6e/48/10540720a36809854196e73f987e9ad5.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/d7/6e/48/10540720a36809854196e73f987e9ad5.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/d7/6e/48/10540720a36809854196e73f987e9ad5.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/d7/6e/48/10540720a36809854196e73f987e9ad5.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/21/49/ec/13c20df8ab3ed189535e7b4f9ae689b7.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/21/49/ec/13c20df8ab3ed189535e7b4f9ae689b7.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/21/49/ec/13c20df8ab3ed189535e7b4f9ae689b7.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/21/49/ec/13c20df8ab3ed189535e7b4f9ae689b7.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/21/49/ec/13c20df8ab3ed189535e7b4f9ae689b7.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/4b/49/75/64ab257c7c29a1f13fb7c9a9a906bd6a.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/4b/49/75/64ab257c7c29a1f13fb7c9a9a906bd6a.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/4b/49/75/64ab257c7c29a1f13fb7c9a9a906bd6a.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/4b/49/75/64ab257c7c29a1f13fb7c9a9a906bd6a.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/4b/49/75/64ab257c7c29a1f13fb7c9a9a906bd6a.jpg"
+        }
+      ],
+      "brand": {
+        "id": 17827,
+        "name": "Apple",
+        "slug": "apple"
+      },
+      "specifications": [
+        {
+          "name": "Content",
+          "attributes": [
+            {
+              "code": "brand",
+              "name": "Thương hiệu",
+              "value": "Apple"
+            },
+            {
+              "code": "brand_country",
+              "name": "Xuất xứ thương hiệu",
+              "value": "Mỹ"
+            },
+            {
+              "code": "camera_sau",
+              "name": "Camera sau",
+              "value": "12MP"
+            },
+            {
+              "code": "camera_truoc",
+              "name": "Camera trước",
+              "value": "12MP"
+            },
+            {
+              "code": "chip_do_hoa",
+              "name": "Chip đồ họa (GPU)",
+              "value": "Apple GPU 4 nhân"
+            },
+            {
+              "code": "chip_set",
+              "name": "Chip set",
+              "value": "A15 Bionic"
+            },
+            {
+              "code": "cpu_speed",
+              "name": "Tốc độ CPU",
+              "value": "2 x 2.5 GHz Vortex + 4 x 1.6 GHz Tempest"
+            },
+            {
+              "code": "dimensions",
+              "name": "Kích thước",
+              "value": "250 x 174 x 7.5 mm"
+            },
+            {
+              "code": "display_type",
+              "name": "Loại/ Công nghệ màn hình",
+              "value": "IPS LCD"
+            },
+            {
+              "code": "item_model_number",
+              "name": "Model",
+              "value": "ipad mini 6"
+            },
+            {
+              "code": "origin",
+              "name": "Xuất xứ",
+              "value": "Trung Quốc"
+            },
+            {
+              "code": "product_weight",
+              "name": "Trọng lượng sản phẩm",
+              "value": "490g"
+            },
+            {
+              "code": "ram",
+              "name": "RAM",
+              "value": "3GB"
+            },
+            {
+              "code": "resolution",
+              "name": "Độ phân giải",
+              "value": "2048 x 1536 pixels"
+            },
+            {
+              "code": "rom",
+              "name": "ROM",
+              "value": "64GB"
+            },
+            {
+              "code": "tinh_nang_camera",
+              "name": "Tính năng camera",
+              "value": "HDR, Tự động lấy nét Panorama, Quay Slow Motion, Time Lapse, ISO Setting, Zoom Kỹ thuật số, Cài đặt cân bằng trắng, Gắn thẻ ảnh địa lý, Phát hiện khuôn mặt"
+            },
+            {
+              "code": "wifi",
+              "name": "Wifi",
+              "value": "802.11 b/g/n/ac - dual bands (2.4GHz + 5GHz)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
