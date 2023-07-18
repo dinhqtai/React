@@ -10,13 +10,18 @@ import ChiTiet from './users/chiTiet'
 import Cart from './users/cart'
 import Addsanpham from './admin/addsanpham'
 import Updatesanpham from './admin/updatesanpham'
+import ListDiscountCode from './admin/discountCode/listDiscountCode'
+import CategoryProducts from './users/category'
 function App() {
   return <BrowserRouter>
     <Routes>
       <Route path='/' element={<UserLayout />}>
+        <Route path='/discount' element={<ListDiscountCode />}>
+        </Route>
         <Route index element={<Home />} />
         <Route path='cart' element={<Cart />} />
         <Route path='detail/:id' element={<ChiTiet />} />
+        <Route path='danhMuc/:idCategory' element={<CategoryProducts />} />
       </Route>
     </Routes>
     <Routes>

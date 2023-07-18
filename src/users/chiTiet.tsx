@@ -27,24 +27,17 @@ const ChiTiet = () => {
         </div>
         <div className="flex pt-[60px] gap-[50px]">
             <div className=" pl-[250px]">
-                <div><img className="w-[358px] h-[358px]" src={product.images?.[0].base_url} alt="" /></div>
+                <div><img className="w-[358px] h-[358px]" src={product.images} alt="" /></div>
                 <div className="flex gap-[30px] mt-[50px]">
                     <div className="w-[65px] h-[65px] border rounded-lg border-red-600">
                         <img className="px-[20px] pt-[5px]" src="/saotrang.png" alt="" />
                         <p className="text-xs text-center">Tính năng nổi bật</p>
-                    </div>
-                    <div className="flex gap-[15px]">
-                        <img className=" w-[60px] h-[60px] border border-indigo-600 rounded-lg " src={product.images?.[0].base_url} alt="" />
-                        <img className=" w-[60px] h-[60px] border border-indigo-600 rounded-lg " src={product.images?.[0].base_url} alt="" />
-                        <img className=" w-[60px] h-[60px] border border-indigo-600 rounded-lg " src={product.images?.[0].base_url} alt="" />
-                        <img className=" w-[60px] h-[60px] border border-indigo-600 rounded-lg " src={product.images?.[0].base_url} alt="" />
                     </div>
                 </div>
             </div>
             <div className="w-[800px]">
                 <div className="flex gap-4">
                     <p className="text-red-500 text-2xl">{product.price} ₫</p>
-                    <p className="text-gray-400 pt-[6px]">{product.original_price} ₫</p>
                 </div>
                 <p className="w-[80%] pt-[20px]"> Mô tả ngắn: Trước khi mua bất kỳ chiếc điện thoại nào, người dùng cũng sẽ quan
                     tâm đến thiết kế sản phẩm trước. Với phiên bản A73, Samsung đã tạo nên một chiếc smartphone

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signupUsers } from '../api/users'
-import { signinSchema, SignupForm, signupSchema, uploadUsers } from '../models'
+import {  SignupForm, signupSchema } from '../models'
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<SignupForm>({
         resolver: yupResolver(signupSchema)

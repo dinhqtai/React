@@ -6,7 +6,7 @@ type Props = {
 const Product = ({ data }: Props) => {
     return <Link to={`detail/${data._id}`} className="block w-[226px] h-[430px] mx-auto">
         <img alt="Art"
-            src={data.images?.[0].base_url}
+            src={data.images}
             className="w-[80%] h-[45%] mx-auto"
         />
 
@@ -15,7 +15,6 @@ const Product = ({ data }: Props) => {
         </h3>
         <div className="flex ">
             <p className="text-lg text-red-500">{data.price} ₫</p>
-            <p className="text-base ml-[5px] text-slate-400">{data.original_price} ₫</p>
         </div>
     </Link>
 
