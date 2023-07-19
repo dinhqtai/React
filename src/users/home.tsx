@@ -32,6 +32,20 @@ const Home = () => {
         fetchCategory()
     }, [])
     return <>
+        <section className="bg-white dark:bg-gray-900">
+            <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+                <div className="mr-auto place-self-center lg:col-span-7">
+                    <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Payments tool for software companies</h1>
+                    <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
+                    <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                        Go to shop
+                    </a>
+                </div>
+                <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                    <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup"></img>
+                </div>
+            </div>
+        </section>
         <div className='w-[90%] mx-auto my-[40px]'>
             <div className="max-w-screen-xl px-4 mx-auto lg:px-12 w-full">
                 <div className="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
@@ -45,7 +59,7 @@ const Home = () => {
                                             <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                                         </svg>
                                     </div>
-                                    <input type="text" id="simple-search" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search" ></input>
+                                    <input type="text" id="simple-search" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tìm kiếm sản phẩm" ></input>
                                 </div>
                             </form>
                         </div>
@@ -122,96 +136,24 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='my-[45px]'>
+            <div className='my-[45px] mb-4 text-xl tracking-tight font-extrabold text-gray-900 dark:text-white'>
                 Danh mục sản phẩm
             </div>
-            <div className="grid grid-cols-8 gap-3">
-                {category ? category.map(category => <Category
-                    data={category}
-                    key={category._id} />) : null}
+            <div id="container" className="w-8/10 mx-auto">
+                <div className="flex flex-col sm:flex-row">
+                    {category ? category.map(category => <Category
+                        data={category}
+                        key={category._id} />) : null}
+                </div>
             </div>
-            <div className='my-[45px]'>
-                ĐIỆN THOẠI NỔI BẬT NHẤT
+            <div className='my-[45px] mb-4 text-xl tracking-tight font-extrabold text-gray-900 dark:text-white'>
+                Danh sách sản phẩm
             </div>
             <div className="grid grid-cols-5 gap-3">
                 {products ? products.map(product => <Product
                     data={product}
                     key={product._id} />) : null}
             </div>
-            <div id="container" className="w-4/5 mx-auto">
-                <div className="flex flex-col sm:flex-row">
-                    <div className="sm:w-1/4 p-2">
-                        <div className="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-                            <div className="mb-3">
-                                <img
-                                    className="w-auto mx-auto rounded-full"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD58jSpvSjTPwBAZK_3d3SSxZB82r8dIyfsw&usqp=CAU"
-                                    alt=""
-                                />
-                            </div>
-                            <h2 className="text-xl font-medium text-gray-700">SmartPhone</h2>
-                            <span className="text-blue-500 block mb-5">Front End Developer</span>
-
-                            <a href="#" className="px-4 py-2 bg-blue-500 text-white rounded-full"
-                            >Hire</a>
-                            
-                        </div>
-                    </div>
-
-                    <div className="sm:w-1/4 p-2">
-                        <div className="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-                            <div className="mb-3">
-                                <img
-                                    className="w-auto mx-auto rounded-full"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGGUHXlcjGtIDYpwHLwy41SlOjzRUaBsRfg&usqp=CAU"
-                                    alt=""
-                                />
-                            </div>
-                            <h2 className="text-xl font-medium text-gray-700">Laptop</h2>
-                            <span className="text-blue-500 block mb-5">Back End Developer</span>
-
-                            <a href="#" className="px-4 py-2 bg-blue-500 text-white rounded-full"
-                            >Hire</a>
-                            
-                        </div>
-                    </div>
-                    <div className="sm:w-1/4 p-2">
-                        <div className="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-                            <div className="mb-3">
-                                <img
-                                    className="w-auto mx-auto rounded-full"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVwMz6KTnu38QIYHKl2maSU0gROPqd3pddPA&usqp=CAU"
-                                    alt=""
-                                />
-                            </div>
-                            <h2 className="text-xl font-medium text-gray-700">Watch</h2>
-                            <span className="text-blue-500 block mb-5">Data Scientist</span>
-
-                            <a href="#" className="px-4 py-2 bg-blue-500 text-white rounded-full"
-                            >Hire</a>
-                            
-                        </div>
-                    </div>
-                    <div className="sm:w-1/4 p-2">
-                        <div className="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-                            <div className="mb-3">
-                                <img
-                                    className="w-auto mx-auto rounded-full"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Yo0zUTJhbGZSSsP3S3-J56oTsHl4MysuUQ&usqp=CAU"
-                                    alt=""
-                                />
-                            </div>
-                            <h2 className="text-xl font-medium text-gray-700">Phụ kiện</h2>
-                            <span className="text-blue-500 block mb-5">Project Manager</span>
-
-                            <a href="#" className="px-4 py-2 bg-blue-500 text-white rounded-full"
-                            >Hire</a>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <section className="bg-white dark:bg-gray-900">
                 <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
                     <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
@@ -259,126 +201,126 @@ const Home = () => {
             </div>
         </section>
         <div className='mx-auto max-w-screen-xl sm:py-16 lg:px-6'>
-        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white flex justify-center">Blogs</h2>
-        <div className='grid grid-cols-3 gap-4 py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6'>
-            <article
-                className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm"
-            >
-                <img
-                    alt="Office"
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                    className="h-56 w-full object-cover"
-                />
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white flex justify-center">Blogs</h2>
+            <div className='grid grid-cols-3 gap-4 py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6'>
+                <article
+                    className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm"
+                >
+                    <img
+                        alt="Office"
+                        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                        className="h-56 w-full object-cover"
+                    />
 
-                <div className="p-4 sm:p-6">
-                    <a href="#">
-                        <h3 className="text-lg font-medium text-gray-900">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </h3>
-                    </a>
+                    <div className="p-4 sm:p-6">
+                        <a href="#">
+                            <h3 className="text-lg font-medium text-gray-900">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </h3>
+                        </a>
 
-                    <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-                        dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
-                        sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
-                        voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
-                        Molestias explicabo corporis voluptatem?
-                    </p>
+                        <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
+                            dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
+                            sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
+                            voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
+                            Molestias explicabo corporis voluptatem?
+                        </p>
 
-                    <a
-                        href="#"
-                        className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
-                    >
-                        Find out more
-
-                        <span
-                            aria-hidden="true"
-                            className="block transition-all group-hover:ms-0.5 rtl:rotate-180"
+                        <a
+                            href="#"
+                            className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
                         >
-                            &rarr;
-                        </span>
-                    </a>
-                </div>
-            </article>
-            <article
-                className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm"
-            >
-                <img
-                    alt="Office"
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                    className="h-56 w-full object-cover"
-                />
+                            Find out more
 
-                <div className="p-4 sm:p-6">
-                    <a href="#">
-                        <h3 className="text-lg font-medium text-gray-900">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </h3>
-                    </a>
+                            <span
+                                aria-hidden="true"
+                                className="block transition-all group-hover:ms-0.5 rtl:rotate-180"
+                            >
+                                &rarr;
+                            </span>
+                        </a>
+                    </div>
+                </article>
+                <article
+                    className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm"
+                >
+                    <img
+                        alt="Office"
+                        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                        className="h-56 w-full object-cover"
+                    />
 
-                    <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-                        dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
-                        sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
-                        voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
-                        Molestias explicabo corporis voluptatem?
-                    </p>
+                    <div className="p-4 sm:p-6">
+                        <a href="#">
+                            <h3 className="text-lg font-medium text-gray-900">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </h3>
+                        </a>
 
-                    <a
-                        href="#"
-                        className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
-                    >
-                        Find out more
+                        <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
+                            dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
+                            sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
+                            voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
+                            Molestias explicabo corporis voluptatem?
+                        </p>
 
-                        <span
-                            aria-hidden="true"
-                            className="block transition-all group-hover:ms-0.5 rtl:rotate-180"
+                        <a
+                            href="#"
+                            className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
                         >
-                            &rarr;
-                        </span>
-                    </a>
-                </div>
-            </article>
-            <article
-                className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm"
-            >
-                <img
-                    alt="Office"
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                    className="h-56 w-full object-cover"
-                />
+                            Find out more
 
-                <div className="p-4 sm:p-6">
-                    <a href="#">
-                        <h3 className="text-lg font-medium text-gray-900">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </h3>
-                    </a>
+                            <span
+                                aria-hidden="true"
+                                className="block transition-all group-hover:ms-0.5 rtl:rotate-180"
+                            >
+                                &rarr;
+                            </span>
+                        </a>
+                    </div>
+                </article>
+                <article
+                    className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm"
+                >
+                    <img
+                        alt="Office"
+                        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                        className="h-56 w-full object-cover"
+                    />
 
-                    <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-                        dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
-                        sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
-                        voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
-                        Molestias explicabo corporis voluptatem?
-                    </p>
+                    <div className="p-4 sm:p-6">
+                        <a href="#">
+                            <h3 className="text-lg font-medium text-gray-900">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </h3>
+                        </a>
 
-                    <a
-                        href="#"
-                        className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
-                    >
-                        Find out more
+                        <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
+                            dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
+                            sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
+                            voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
+                            Molestias explicabo corporis voluptatem?
+                        </p>
 
-                        <span
-                            aria-hidden="true"
-                            className="block transition-all group-hover:ms-0.5 rtl:rotate-180"
+                        <a
+                            href="#"
+                            className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
                         >
-                            &rarr;
-                        </span>
-                    </a>
-                </div>
-            </article>
-        </div>
+                            Find out more
+
+                            <span
+                                aria-hidden="true"
+                                className="block transition-all group-hover:ms-0.5 rtl:rotate-180"
+                            >
+                                &rarr;
+                            </span>
+                        </a>
+                    </div>
+                </article>
+            </div>
         </div>
     </>
 }

@@ -20,6 +20,7 @@ const CategoryProducts = () => {
         fetchProduct()
     }, [])
     return <>
+        <div className="mb-4 mt-20 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white flex justify-center">Sản phẩm theo danh mục</div>
         <div className="grid grid-cols-5 gap-3 mt-[100px]">
             {products.map(product => <Product
                 data={product}
