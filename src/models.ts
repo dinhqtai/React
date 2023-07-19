@@ -1,5 +1,4 @@
 import * as Yup from "yup"
-import { searchNameDiscount } from "./api/discountCode"
 export interface IProduct {
     _id: string,
     name: string,
