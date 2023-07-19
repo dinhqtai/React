@@ -92,10 +92,8 @@ const ListPhone = () => {
                                 <Link to={`update/${product._id}`}>
                                     <td className="whitespace-nowrap px-4 py-2 text-gray-700">{product.name}</td>
                                 </Link>
-                                <td className="whitespace-nowrap px-4 py-2 text-gray-700"><img className='w-[250px]' src={product.images?.[0].base_url} alt="" /></td>
-                                <td className="whitespace-nowrap px-4 py-2 text-gray-700">{product.price}</td>
-                                <td className="whitespace-nowrap px-4 py-2 text-gray-700">{product.original_price}</td>
-                                <td className="whitespace-nowrap px-4 py-2">
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700"><img className='w-[250px]' src={product.images} alt="" /></td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700">{product.price}</td>                                <td className="whitespace-nowrap px-4 py-2">
                                     <button data-id={product._id}
                                         className="btn-xoa inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
                                     >

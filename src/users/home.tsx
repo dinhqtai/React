@@ -56,7 +56,7 @@ const Home = () => {
                                 <div className="relative w-full">
                                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                         <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                            <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                                         </svg>
                                     </div>
                                     <form action="">
@@ -69,14 +69,14 @@ const Home = () => {
                         <div className="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
                             <button type="button" className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                                 <svg className="h-3.5 w-3.5 mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                                    <path clipRule="evenodd" fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                                 </svg>
                                 Add product
                             </button>
                             <div className="flex items-center w-full space-x-3 md:w-auto">
                                 <button id="actionsDropdownButton" data-dropdown-toggle="actionsDropdown" className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type="button">
                                     <svg className="-ml-1 mr-1.5 w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                        <path clip-rule="evenodd" fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                                        <path clipRule="evenodd" fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                                     </svg>
                                     Actions
                                 </button>
@@ -92,11 +92,11 @@ const Home = () => {
                                 </div>
                                 <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown" className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-4 h-4 mr-2 text-gray-400" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
+                                        <path fillRule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clipRule="evenodd" />
                                     </svg>
                                     Filter
                                     <svg className="-mr-1 ml-1.5 w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                        <path clip-rule="evenodd" fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                                        <path clipRule="evenodd" fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                                     </svg>
                                 </button>
                                 <div id="filterDropdown" className="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
@@ -126,7 +126,7 @@ const Home = () => {
                                             </label>
                                         </li>
                                         <li className="flex items-center">
-                                            <input id="asus" type="checkbox" value="" checked
+                                            <input id="asus" type="checkbox" value=""
                                                 className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
                                             <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                                                 Asus (97)
@@ -172,79 +172,79 @@ const Home = () => {
             </section>
         </div>
         <section className="m-4 md:m-8 dark:bg-gray-800 dark:text-gray-100">
-	<div className="container mx-auto p-4 my-6 space-y-2 text-center">
-		<h2 className="text-5xl font-bold">Built to empower every team</h2>
-		<p className="dark:text-gray-400">Libero minima optio qui</p>
-	</div>
-	<div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
-		<div className="flex flex-col items-center p-4">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
-				<path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
-			</svg>
-			<h3 className="my-3 text-3xl font-semibold">Product</h3>
-			<div className="space-y-1 leadi">
-				<p>Similique quas ea veniam</p>
-				<p>Tempore quasi porro</p>
-				<p>Blanditiis aut mollitia ex</p>
-			</div>
-		</div>
-		<div className="flex flex-col items-center p-4">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
-				<path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
-			</svg>
-			<h3 className="my-3 text-3xl font-semibold">Product</h3>
-			<div className="space-y-1 leadi">
-				<p>Similique quas ea veniam</p>
-				<p>Tempore quasi porro</p>
-				<p>Blanditiis aut mollitia ex</p>
-			</div>
-		</div>
-		<div className="flex flex-col items-center p-4">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
-				<path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
-			</svg>
-			<h3 className="my-3 text-3xl font-semibold">Product</h3>
-			<div className="space-y-1 leadi">
-				<p>Similique quas ea veniam</p>
-				<p>Tempore quasi porro</p>
-				<p>Blanditiis aut mollitia ex</p>
-			</div>
-		</div>
-		<div className="flex flex-col items-center p-4">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
-				<path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
-			</svg>
-			<h3 className="my-3 text-3xl font-semibold">Product</h3>
-			<div className="space-y-1 leadi">
-				<p>Similique quas ea veniam</p>
-				<p>Tempore quasi porro</p>
-				<p>Blanditiis aut mollitia ex</p>
-			</div>
-		</div>
-		<div className="flex flex-col items-center p-4">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
-				<path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
-			</svg>
-			<h3 className="my-3 text-3xl font-semibold">Product</h3>
-			<div className="space-y-1 leadi">
-				<p>Similique quas ea veniam</p>
-				<p>Tempore quasi porro</p>
-				<p>Blanditiis aut mollitia ex</p>
-			</div>
-		</div>
-		<div className="flex flex-col items-center p-4">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
-				<path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
-			</svg>
-			<h3 className="my-3 text-3xl font-semibold">Product</h3>
-			<div className="space-y-1 leadi">
-				<p>Similique quas ea veniam</p>
-				<p>Tempore quasi porro</p>
-				<p>Blanditiis aut mollitia ex</p>
-			</div>
-		</div>
-	</div>
-</section>
+            <div className="container mx-auto p-4 my-6 space-y-2 text-center">
+                <h2 className="text-5xl font-bold">Built to empower every team</h2>
+                <p className="dark:text-gray-400">Libero minima optio qui</p>
+            </div>
+            <div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="flex flex-col items-center p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
+                        <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
+                    </svg>
+                    <h3 className="my-3 text-3xl font-semibold">Product</h3>
+                    <div className="space-y-1 leadi">
+                        <p>Similique quas ea veniam</p>
+                        <p>Tempore quasi porro</p>
+                        <p>Blanditiis aut mollitia ex</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
+                        <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
+                    </svg>
+                    <h3 className="my-3 text-3xl font-semibold">Product</h3>
+                    <div className="space-y-1 leadi">
+                        <p>Similique quas ea veniam</p>
+                        <p>Tempore quasi porro</p>
+                        <p>Blanditiis aut mollitia ex</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
+                        <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
+                    </svg>
+                    <h3 className="my-3 text-3xl font-semibold">Product</h3>
+                    <div className="space-y-1 leadi">
+                        <p>Similique quas ea veniam</p>
+                        <p>Tempore quasi porro</p>
+                        <p>Blanditiis aut mollitia ex</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
+                        <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
+                    </svg>
+                    <h3 className="my-3 text-3xl font-semibold">Product</h3>
+                    <div className="space-y-1 leadi">
+                        <p>Similique quas ea veniam</p>
+                        <p>Tempore quasi porro</p>
+                        <p>Blanditiis aut mollitia ex</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
+                        <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
+                    </svg>
+                    <h3 className="my-3 text-3xl font-semibold">Product</h3>
+                    <div className="space-y-1 leadi">
+                        <p>Similique quas ea veniam</p>
+                        <p>Tempore quasi porro</p>
+                        <p>Blanditiis aut mollitia ex</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
+                        <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
+                    </svg>
+                    <h3 className="my-3 text-3xl font-semibold">Product</h3>
+                    <div className="space-y-1 leadi">
+                        <p>Similique quas ea veniam</p>
+                        <p>Tempore quasi porro</p>
+                        <p>Blanditiis aut mollitia ex</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div className='mx-auto max-w-screen-xl sm:py-16 lg:px-6'>
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white flex justify-center">Blogs</h2>
             <div className='grid grid-cols-3 gap-4 py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6'>
