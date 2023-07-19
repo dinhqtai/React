@@ -13,7 +13,6 @@ import Updatesanpham from './admin/updatesanpham'
 import ListDiscountCode from './admin/discountCode/listDiscountCode'
 import CategoryProducts from './users/category'
 import Contact from './users/contact'
-import 'antd/dist/antd.css';
 
 function App() {
   return <BrowserRouter>
