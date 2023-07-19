@@ -11,6 +11,7 @@ import { ISearchProductName } from '../model/products'
 const Home = () => {
     const [products, setProducts] = useState<IProduct[]>([])
     const [category, setCategory] = useState<ICategory[]>([])
+    const [mess, setMess] = useState("")
     const { register, handleSubmit } = useForm<ISearchProductName>({})
     useEffect(() => {
         const fetchProduct = async () => {
@@ -37,7 +38,12 @@ const Home = () => {
     const onSubmit = async (data: ISearchProductName) => {
         try {
             const search = await searchProductsName(data)
-            setProducts(search.data.checkSearchName)
+            if (search.data.checkSearchName.length === 0) {
+                setMess("Sản phẩm không tồn tại")
+                setProducts([])
+            } else {
+                setProducts(search.data.checkSearchName)
+            }
         } catch (errors) {
             console.log(errors)
         }
@@ -96,6 +102,7 @@ const Home = () => {
                 {products ? products.map(product => <Product
                     data={product}
                     key={product._id} />) : null}
+                {mess}
             </div>
             <section className="bg-white dark:bg-gray-900">
                 <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
