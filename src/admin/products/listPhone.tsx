@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { deleteId, getAll } from '../api/products';
-import { IProduct } from '../models';
+import { deleteId, getAll } from '../../api/products';
+import { IProduct } from '../../models';
 import { Link, useParams } from 'react-router-dom';
-import { getByIdUsers } from '../api/users';
+import { getByIdUsers } from '../../api/users';
 const ListPhone = () => {
     const [product, setProduct] = useState<IProduct[]>([])
     const { id } = useParams();

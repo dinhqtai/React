@@ -1,27 +1,40 @@
 import { useParams } from "react-router-dom"
-import { getById, postId, putId } from "../api/products"
+import { getById, putId } from "../../api/products"
 import * as Yup from "yup"
 import { useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, useState } from "react"
-import { IProduct, postProducts, updateForm, updateSchema } from "../models"
+import { IProduct, updateForm, updateSchema } from "../../models"
 
-const Addsanpham = () => {
-    const { idAdmin } = useParams();
+const Updatesanpham = () => {
+    const { idAdmin, id } = useParams()
     const navigate = useNavigate()
-    const { register, handleSubmit, formState: { errors } } = useForm<postProducts>({
-        resolver: yupResolver(postProducts),
+    const { register, handleSubmit, formState: { errors } } = useForm<updateForm>({
+        resolver: yupResolver(updateSchema),
+        defaultValues: async () => {
+            if (id) {
+                return await fetchProductById(id)
+            }
+        }
     })
-    const onSubmit = async (product: postProducts) => {
+    const onSubmit = async (product: updateForm) => {
         console.log(product)
         try {
-            const response = await postId(product)
-            navigate(`/admin/${idAdmin}`);
+            if (id) {
+                const response = await putId(id, product)
+                navigate(`/admin/${idAdmin}`);
+            }
         } catch (err) {
             console.log(err);
 
         }
+
+    }
+
+    const fetchProductById = async (id: string) => {
+        const { data } = await getById(id)
+        return data
 
     }
     return <>
@@ -86,4 +99,4 @@ const Addsanpham = () => {
     </>
 }
 
-export default Addsanpham
+export default Updatesanpham
