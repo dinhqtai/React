@@ -1,5 +1,5 @@
 import instance from ".";
-import { ISearchProduct } from "../model/products";
+import { ISearchProduct, ISearchProductName } from "../model/products";
 import { IProduct, postProducts, updateForm } from "../models";
 
 export const getAll = () => {
@@ -24,5 +24,8 @@ export const searchProductsCategory = (data: ISearchProduct) => {
 }
 export const searchProductsCategoryDetail = (data: ISearchProduct) => {
     return instance.post("/searchProductCategoryDetail", data)
+}
+export const searchProductsName = (data: ISearchProductName) => {
+    return instance.post("/searchProductsName", data)
 }
 
