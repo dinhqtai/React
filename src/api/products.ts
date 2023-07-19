@@ -22,4 +22,7 @@ export const putId = (id: String, data: updateForm) => {
 export const searchProductsCategory = (data: ISearchProduct) => {
     return instance.post("/searchProductCategory", data)
 }
+export const searchProductsCategoryDetail = (data: ISearchProduct) => {
+    return instance.post("/searchProductCategoryDetail", data)
+}
 
