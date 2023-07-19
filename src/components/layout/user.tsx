@@ -6,7 +6,7 @@ const UserLayout = () => {
 
 
     <header className="bg-white shadow-lg h-24 hidden md:flex">
-      <a href="" className="border flex-shrink-0 flex items-center justify-center px-4 lg:px-6 xl:px-8">
+      <a href="/" className="border flex-shrink-0 flex items-center justify-center px-4 lg:px-6 xl:px-8">
         <img className="" src="https://i.ibb.co/W6ZXdqN/2021-10-26-16h20-21.png" alt="" />
       </a>
       <nav className="header-links contents font-semibold text-base lg:text-lg">

@@ -152,7 +152,7 @@ const Home = () => {
             <div className='my-[45px] mb-4 text-xl tracking-tight font-extrabold text-gray-900 dark:text-white'>
                 Danh sách sản phẩm
             </div>
-            <div className="grid grid-cols-5 gap-3">
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {products ? products.map(product => <Product
                     data={product}
                     key={product._id} />) : null}
