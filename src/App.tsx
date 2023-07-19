@@ -12,6 +12,7 @@ import Addsanpham from './admin/addsanpham'
 import Updatesanpham from './admin/updatesanpham'
 import ListDiscountCode from './admin/discountCode/listDiscountCode'
 import CategoryProducts from './users/category'
+import Contact from './users/contact'
 function App() {
   return <BrowserRouter>
     <Routes>
@@ -20,6 +21,7 @@ function App() {
         </Route>
         <Route index element={<Home />} />
         <Route path='cart' element={<Cart />} />
+        <Route path='contact' element={<Contact />} />
         <Route path='detail/:id' element={<ChiTiet />} />
         <Route path='danhMuc/:idCategory' element={<CategoryProducts />} />
       </Route>
