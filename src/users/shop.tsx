@@ -1,4 +1,22 @@
+import { useEffect, useState } from "react"
+import { IProduct } from "../models"
+import { getAll } from "../api/products"
+import Product from "../components/products"
 const Shop = () => {
+  const [products, setProducts] = useState<IProduct[]>([])
+  const [mess, setMess] = useState("")
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const { data } = await getAll()
+        setProducts(data)
+
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchProduct()
+  }, [])
   return <>
     <div className="max-w-screen-xl px-4 mx-auto lg:px-12 w-full mt-10 ">
       <div className="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
@@ -19,7 +37,7 @@ const Shop = () => {
             </form>
           </div>
           <div className="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
-            <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100">sap xep theo gia</button>
+            <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100">Sắp xếp theo giá từ lớn đến nhỏ</button>
             <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
               <path d="M18.85 1.1A1.99 1.99 0 0 0 17.063 0H2.937a2 2 0 0 0-1.566 3.242L6.99 9.868 7 14a1 1 0 0 0 .4.8l4 3A1 1 0 0 0 13 17l.01-7.134 5.66-6.676a1.99 1.99 0 0 0 .18-2.09Z" />
             </svg>
@@ -27,80 +45,11 @@ const Shop = () => {
 
         </div>
       </div>
-    </div>
-    <section className="py-6 dark:bg-gray-800 dark:text-gray-100">
-
-    </section>
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Smart Phone</h2>
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          <div className="group relative">
-            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full"></img>
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Lap Top</h2>
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          <div className="group relative">
-            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full"></img>
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Đồng Hồ</h2>
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          <div className="group relative">
-            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full"></img>
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div>
-        </div>
+      <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        {products ? products.map(product => <Product
+          data={product}
+          key={product._id} />) : null}
+        {mess}
       </div>
     </div>
   </>
