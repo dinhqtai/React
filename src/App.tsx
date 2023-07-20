@@ -5,16 +5,17 @@ import Login from './users/login'
 import UserLayout from './components/layout/user'
 import AdminLayout from './components/layout/admin'
 import Register from './users/register'
-import ListPhone from './admin/listPhone'
+import ListPhone from './admin/products/listPhone'
 import ChiTiet from './users/chiTiet'
 import Cart from './users/cart'
-import Addsanpham from './admin/addsanpham'
-import Updatesanpham from './admin/updatesanpham'
+
+import Updatesanpham from './admin/products/updatesanpham'
 import ListDiscountCode from './admin/discountCode/listDiscountCode'
 import CategoryProducts from './users/category'
 import Contact from './users/contact'
 import Shop from './users/shop'
 import Blog from './users/blog'
+import Addsanpham from './admin/products/addsanpham'
 function App() {
   return <BrowserRouter>
     <Routes>

@@ -1,23 +1,28 @@
 import { Link } from "react-router-dom"
+import { Route } from "react-router-dom"
 import { IProduct } from "../models"
 type Props = {
     data: IProduct
 }
 const Product = ({ data }: Props) => {
-    return <a href={`detail/${data._id}`} className="block w-[226px] h-[430px] mx-auto">
+    return <div className="group relative">
         <img alt="Art"
             src={data.images}
-            className="w-[80%] h-[45%] mx-auto"
+            className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
         />
 
-        <h3 className="mt-4 text-lg">
-            {data.name}
-        </h3>
-        <div className="flex ">
-            <p className="text-lg text-red-500">{data.price} ₫</p>
+        <div className="mt-4 flex justify-between">
+            <div>
+                <h3 className="text-sm text-gray-700">
+                    <Link to={`/detail/${data._id}`}>
+                        <span aria-hidden="true" className="absolute inset-0"></span>
+                        {data.name}
+                    </Link>
+                </h3>
+            </div>
+            <p className="text-sm font-medium text-gray-900">{data.price}</p>
         </div>
-        
-    </a>
+    </div>
 
 
 }
