@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { IProduct } from "../models"
-import { getAll } from "../api/products"
+import { getAll, searchPriceSort, } from "../api/products"
 import Product from "../components/products"
 const Shop = () => {
   const [products, setProducts] = useState<IProduct[]>([])
@@ -17,6 +17,14 @@ const Shop = () => {
     }
     fetchProduct()
   }, [])
+  const sortPrice = async () => {
+    try {
+      const { data } = await searchPriceSort()
+      setProducts(data)
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return <>
     <div className="max-w-screen-xl px-4 mx-auto lg:px-12 w-full mt-10 ">
       <div className="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
@@ -37,7 +45,7 @@ const Shop = () => {
             </form>
           </div>
           <div className="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
-            <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100">Sắp xếp theo giá từ lớn đến nhỏ</button>
+            <button type="button" onClick={sortPrice} className="px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100">Sắp xếp theo giá từ lớn đến nhỏ</button>
             <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
               <path d="M18.85 1.1A1.99 1.99 0 0 0 17.063 0H2.937a2 2 0 0 0-1.566 3.242L6.99 9.868 7 14a1 1 0 0 0 .4.8l4 3A1 1 0 0 0 13 17l.01-7.134 5.66-6.676a1.99 1.99 0 0 0 .18-2.09Z" />
             </svg>

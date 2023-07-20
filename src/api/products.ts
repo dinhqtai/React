@@ -28,4 +28,8 @@ export const searchProductsCategoryDetail = (data: ISearchProduct) => {
 export const searchProductsName = (data: ISearchProductName) => {
     return instance.post("/searchProductsName", data)
 }
+export const searchPriceSort = () => {
+    return instance.get("/searchPriceSort")
+}
+
 
