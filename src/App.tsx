@@ -18,6 +18,8 @@ import { ListPhone } from "./admin/products/listPhone";
 import { Addsanpham } from "./admin/products/addsanpham";
 import { AdminEditProduct } from "./admin/products/updatesanpham";
 import { ListCate } from "./admin/categories/ListCate";
+import AddCate from "./admin/categories/AddCate";
+import UpdateCate from "./admin/categories/UpdateCate";
 function App() {
   return (
     <BrowserRouter>
@@ -39,6 +41,8 @@ function App() {
           <Route path="product/create" element={<Addsanpham />} />
           <Route path="product/edit/:id" element={<AdminEditProduct />} />
           <Route path="category" element={<ListCate />} />
+          <Route path="category/addCate" element={<AddCate />} />
+          <Route path="updateCate" element={<UpdateCate />} />
         </Route>
       </Routes>
       <Routes>
