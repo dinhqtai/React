@@ -141,10 +141,10 @@ export const ListPhone: React.FC = () => {
       let { data } = await getAll();
       setProducts(
         data.map((item: IProduct) => {
-          const fetchCategory = async () => {
-            const { data } = await getByIdcategory(item.category_id)
-          }
-          fetchCategory()
+          // // const fetchCategory = async () => {
+          // //   const { data } = await getByIdcategory(item.category_id)
+          // // }
+          // fetchCategory()
           return {
             key: item._id,
             name: item.name,
