@@ -4,8 +4,8 @@ import { Space, Table, Button, Popconfirm, message, Image } from "antd";
 import type { ColumnsType } from "antd/es/table";
 
 import { NavLink } from "react-router-dom";
-import { IProduct } from "../../models";
 import { deleteIdCategory, getAllCategory } from "../../api/category";
+import { ICategory } from "../../model/category";
 interface DataType {
   key: string;
   name: string;
@@ -21,9 +21,9 @@ const columns: ColumnsType<DataType> = [
     width: "10%",
   },
   {
-    key: "images",
+    key: "image",
     title: "Hình ảnh",
-    dataIndex: "images",
+    dataIndex: "image",
     align: "center",
     width: "20%",
     render: (text: string) => <Image width={100} src={text} />,
@@ -99,20 +99,21 @@ export const ListCate: React.FC = () => {
   useEffect(() => {
     async function fetchProduct() {
       let { data } = await getAllCategory();
+      console.log(data);
 
       setCategory(
-        data.map((item: IProduct) => {
+        data.map((item: ICategory) => {
           return {
             key: item._id,
             name: item.name,
-            images: item.images,
+            image: item.image,
           };
         })
       );
     }
 
     fetchProduct();
-  }, [category]);
+  }, []);
 
   return (
     <Table

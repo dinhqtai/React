@@ -53,9 +53,9 @@ const columns: ColumnsType<DataType> = [
     width: "10%",
   },
   {
-    key: "nameCate",
+    key: "category_id",
     title: "Danh mục",
-    dataIndex: "nameCate",
+    dataIndex: "category_id",
     align: "center",
     width: "10%",
   },
@@ -145,6 +145,7 @@ export const ListPhone: React.FC = () => {
           // //   const { data } = await getByIdcategory(item.category_id)
           // // }
           // fetchCategory()
+          //Chưa biết fix
           return {
             key: item._id,
             name: item.name,
@@ -152,7 +153,7 @@ export const ListPhone: React.FC = () => {
             soLuong: item.soLuong,
             description: item.desc,
             images: item.images,
-            category_id: data.nameCate
+            category_id: item.category_id
           };
         })
       );
