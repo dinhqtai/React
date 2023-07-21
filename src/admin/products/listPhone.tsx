@@ -6,16 +6,17 @@ import type { ColumnsType } from "antd/es/table";
 import { NavLink } from "react-router-dom";
 import { deleteId, getAll } from "../../api/products";
 import { IProduct } from "../../models";
+import { getAllCategory, getByIdcategory } from "../../api/category";
 
 interface DataType {
   key: string;
   name: string;
   price: number;
-  original_price: number;
   short_description: string;
   description: string;
   images: string;
   brand: string;
+  category_id: string
 }
 
 const columns: ColumnsType<DataType> = [
@@ -48,6 +49,13 @@ const columns: ColumnsType<DataType> = [
     key: "soLuong",
     title: "Số lượng",
     dataIndex: "soLuong",
+    align: "center",
+    width: "10%",
+  },
+  {
+    key: "nameCate",
+    title: "Danh mục",
+    dataIndex: "nameCate",
     align: "center",
     width: "10%",
   },
@@ -131,9 +139,12 @@ export const ListPhone: React.FC = () => {
   useEffect(() => {
     async function fetchProduct() {
       let { data } = await getAll();
-
       setProducts(
         data.map((item: IProduct) => {
+          const fetchCategory = async () => {
+            const { data } = await getByIdcategory(item.category_id)
+          }
+          fetchCategory()
           return {
             key: item._id,
             name: item.name,
@@ -141,13 +152,14 @@ export const ListPhone: React.FC = () => {
             soLuong: item.soLuong,
             description: item.desc,
             images: item.images,
+            category_id: data.nameCate
           };
         })
       );
     }
 
     fetchProduct();
-  }, [products]);
+  }, []);
 
   return (
     <Table
