@@ -14,11 +14,10 @@ import CategoryProducts from "./users/category";
 import Contact from "./users/contact";
 import Shop from "./users/shop";
 import Blog from "./users/blog";
-
-import ListCate from "./admin/categories/ListCate";
 import { ListPhone } from "./admin/products/listPhone";
 import { Addsanpham } from "./admin/products/addsanpham";
 import { AdminEditProduct } from "./admin/products/updatesanpham";
+import { ListCate } from "./admin/categories/ListCate";
 function App() {
   return (
     <BrowserRouter>
@@ -39,7 +38,7 @@ function App() {
           <Route index path="product" element={<ListPhone />} />
           <Route path="product/create" element={<Addsanpham />} />
           <Route path="product/edit/:id" element={<AdminEditProduct />} />
-          <Route path="addcate" element={<ListCate />} />
+          <Route path="category" element={<ListCate />} />
         </Route>
       </Routes>
       <Routes>

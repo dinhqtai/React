@@ -5,7 +5,7 @@ import { Button, Form, Input, InputNumber, message, Select } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import { IProduct } from "../../models";
 import { getById, putId } from "../../api/products";
-import { getAllcategory } from "../../api/category";
+import { getAllCategory } from "../../api/category";
 
 export const AdminEditProduct = () => {
   const { id } = useParams();
@@ -55,7 +55,7 @@ export const AdminEditProduct = () => {
     getProduct();
 
     let getCate = async () => {
-      const { data } = await getAllcategory();
+      const { data } = await getAllCategory();
       setCate(data.map((c: any) => ({ value: c._id, label: c.name })));
     };
     getCate();

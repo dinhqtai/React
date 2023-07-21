@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Product from '../components/products'
 import { IProduct } from '../models'
 import { getAll, searchProductsName } from '../api/products'
-import { getAllcategory } from '../api/category'
+import { getAllCategory } from '../api/category'
 import { ICategory } from '../model/category'
 import Category from '../components/category'
 import { useForm } from "react-hook-form"
@@ -26,7 +26,7 @@ const Home = () => {
         fetchProduct()
         const fetchCategory = async () => {
             try {
-                const { data } = await getAllcategory()
+                const { data } = await getAllCategory()
                 setCategory(data)
             } catch (err) {
                 console.log(err);

@@ -4,7 +4,7 @@ import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { IProduct } from "../../models";
 
-import { getAllcategory } from "../../api/category";
+import { getAllCategory } from "../../api/category";
 import { postId } from "../../api/products";
 
 export const Addsanpham = () => {
@@ -47,7 +47,7 @@ export const Addsanpham = () => {
 
   useEffect(() => {
     let getCate = async () => {
-      const { data } = await getAllcategory();
+      const { data } = await getAllCategory();
       setCate(data.map((c: any) => ({ value: c._id, label: c.name })));
     };
     getCate();
