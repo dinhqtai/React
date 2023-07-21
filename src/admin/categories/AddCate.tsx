@@ -26,7 +26,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AddCate: React.FC = () => {
   const navigate = useNavigate();
-  const postCate = async (data: AddCategory) => {
+  const onFinish = async (data: AddCategory) => {
     const post = await postIdcategory(data);
     if (post) {
       message.success("Thêm danh mục sản phẩm thành công!");
@@ -41,13 +41,13 @@ const AddCate: React.FC = () => {
   return (
     <div>
       <div className="flex justify-center items-center border-b-[2px]">
-        <span className="text-[25px] font-bold mb-5">Thêm mới sản phẩm</span>
+        <span className="text-[25px] font-bold mb-5">Thêm mới danh mục</span>
       </div>
 
       <div className="mt-5">
 
         <Form
-          onFinish={postCate} className="mx-auto mb-0 mt-8 max-w-md space-y-4 mb-9">
+          onFinish={onFinish} className="mx-auto mb-0 mt-8 max-w-md space-y-4 mb-9">
           <div>
             <Form.Item className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
               name="name"

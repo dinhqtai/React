@@ -19,7 +19,7 @@ export interface IUser {
   name: string;
   email: string;
   phone: string;
-
+  money: number
   password: string;
   role: string;
 }

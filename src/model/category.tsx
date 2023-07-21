@@ -7,3 +7,7 @@ export interface AddCategory {
     name: string,
     image: string
 }
+export interface UpdateCategory {
+    name: string,
+    image: string
+}

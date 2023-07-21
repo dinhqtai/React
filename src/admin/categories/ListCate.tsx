@@ -35,7 +35,7 @@ const columns: ColumnsType<DataType> = [
     width: "15%",
     render: (_, record) => (
       <Space size="middle">
-        <NavLink to={`/admin/product/edit/${record.key}`}>
+        <NavLink to={`/admin/category/edit/${record.key}`}>
           <Button>
             <div className="flex ">
               <svg
@@ -99,8 +99,6 @@ export const ListCate: React.FC = () => {
   useEffect(() => {
     async function fetchProduct() {
       let { data } = await getAllCategory();
-      console.log(data);
-
       setCategory(
         data.map((item: ICategory) => {
           return {

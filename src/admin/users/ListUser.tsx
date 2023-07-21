@@ -34,9 +34,9 @@ const columns: ColumnsType<DataType> = [
     width: "10%",
   },
   {
-    key: "address",
-    title: "Địa chỉ",
-    dataIndex: "address",
+    key: "money",
+    title: "Số dư tài khoản",
+    dataIndex: "money",
     align: "center",
     width: "10%",
   },
@@ -69,6 +69,7 @@ export const ListUser: React.FC = () => {
             key: item._id,
             name: item.name,
             email: item.email,
+            money: item.money,
             phone: item.phone,
             password: item.password,
             role: item.role,
@@ -81,6 +82,6 @@ export const ListUser: React.FC = () => {
   }, []);
 
   return (
-    <Table columns={columns} dataSource={users} pagination={{ pageSize: 3 }} />
+    <Table columns={columns} dataSource={users} pagination={{ pageSize: 10 }} />
   );
 };

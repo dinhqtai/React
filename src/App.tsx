@@ -20,6 +20,8 @@ import { AdminEditProduct } from "./admin/products/updatesanpham";
 import { ListCate } from "./admin/categories/ListCate";
 import AddCate from "./admin/categories/AddCate";
 import UpdateCate from "./admin/categories/UpdateCate";
+import AddUser from "./admin/users/AddUser";
+import { ListUser } from "./admin/users/ListUser";
 function App() {
   return (
     <BrowserRouter>
@@ -42,7 +44,8 @@ function App() {
           <Route path="product/edit/:id" element={<AdminEditProduct />} />
           <Route path="category" element={<ListCate />} />
           <Route path="category/addCate" element={<AddCate />} />
-          <Route path="updateCate" element={<UpdateCate />} />
+          <Route path="category/edit/:id" element={<UpdateCate />} />
+          <Route path="user" element={<ListUser />} />
         </Route>
       </Routes>
       <Routes>
