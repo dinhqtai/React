@@ -31,11 +31,11 @@ const Shop = () => {
   const onSubmit = async (data: ISearchProductName) => {
     try {
       const search = await searchProductsName(data)
-      if (search.data.checkSearchName.length === 0) {
+      if (search.data.checkSearchAll.length === 0) {
         setMess("Sản phẩm không tồn tại")
         setProducts([])
       } else {
-        setProducts(search.data.checkSearchName)
+        setProducts(search.data.checkSearchAll)
       }
     } catch (errors) {
       console.log(errors)
