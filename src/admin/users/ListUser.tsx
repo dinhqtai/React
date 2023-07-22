@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { IUser } from "../../models";
 import { getAllUsers } from "../../api/users";
+import { IUser } from "../../models";
 
 interface DataType {
   key: string;
@@ -57,7 +57,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-export const ListUser: React.FC = () => {
+export const AdminUser: React.FC = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
