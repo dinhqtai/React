@@ -23,6 +23,23 @@ export interface IUser {
   password: string;
   role: string;
 }
+export interface ICart {
+  user: string;
+  products: ICartItem[];
+  totalPrice: number;
+}
+export interface ICartItem {
+  product: string;
+  quantity: number;
+  price: number;
+}
+export interface ICartDetail {
+  _id: string;
+  name: string;
+  images: string;
+  price: number;
+  original_price: number;
+}
 export interface searchDiscount {
   name: string;
 }
