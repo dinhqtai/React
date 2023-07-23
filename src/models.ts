@@ -23,6 +23,23 @@ export interface IUser {
   password: string;
   role: string;
 }
+export interface ICart {
+  user: string;
+  products: ICartItem[];
+  totalPrice: number;
+}
+export interface ICartItem {
+  product: string;
+  quantity: number;
+  price: number;
+}
+export interface ICartDetail {
+  _id: string;
+  name: string;
+  images: string;
+  price: number;
+  original_price: number;
+}
 export interface searchDiscount {
   name: string;
 }
@@ -83,11 +100,7 @@ export type updateForm = Yup.InferType<typeof updateSchema>;
 
 export const categorySchema = Yup.object({
   name: Yup.string().required("Trường dữ liệu bắt buộc"),
-  price: Yup.number().required("Trường dữ liệu bắt buộc"),
-  original_price: Yup.number().required("Trường dữ liệu bắt buộc"),
-  description: Yup.string()
-    .min(10, "Tối thiếu 10 ký tự")
-    .required("Trường dữ liệu bắt buộc"),
+  image: Yup.string().required("Trường dữ liệu bắt buộc"),
 });
 export type category = Yup.InferType<typeof categorySchema>;
 

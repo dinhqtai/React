@@ -6,7 +6,7 @@ export const getAllCategory = () => {
     const uri = "/category"
     return instance.get(uri)
 }
-export const getByIdcategory = (id: String) => {
+export const getByIdCategory = (id: String) => {
     const uri = "/category/" + id
     return instance.get(uri)
 }

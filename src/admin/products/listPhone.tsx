@@ -6,7 +6,7 @@ import type { ColumnsType } from "antd/es/table";
 import { NavLink } from "react-router-dom";
 import { deleteId, getAll } from "../../api/products";
 import { IProduct } from "../../models";
-import { getAllCategory, getByIdcategory } from "../../api/category";
+import { getAllCategory, getByIdCategory } from "../../api/category";
 
 interface DataType {
   key: string;

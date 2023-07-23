@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 import { getAll, searchProductsCategory } from "../api/products"
 import { ISearchProduct } from "../model/products"
 import { ICategory } from "../model/category"
-import { getByIdcategory } from "../api/category"
+import { getByIdCategory } from "../api/category"
 const CategoryProducts = () => {
     const { idCategory } = useParams()
     const [products, setProducts] = useState<IProduct[]>([])
@@ -13,7 +13,7 @@ const CategoryProducts = () => {
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const getName = await getByIdcategory(String(idCategory))
+                const getName = await getByIdCategory(String(idCategory))
                 setCategory(getName.data)
             } catch (err) {
                 console.log(err);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form, Input, message, Upload } from 'antd';
-import { getByIdcategory, putIdcategory } from '../../api/category';
+import { getByIdCategory, putIdcategory } from '../../api/category';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ICategory } from '../../model/category';
 const AddCate: React.FC = () => {
@@ -9,7 +9,7 @@ const AddCate: React.FC = () => {
   const { id } = useParams()
   useEffect(() => {
     const getCate = async () => {
-      const { data } = await getByIdcategory(id as string);
+      const { data } = await getByIdCategory(id as string);
       setCategory(data)
     };
     getCate()
