@@ -29,14 +29,19 @@ const CategoryProducts = () => {
             }
         }
         fetchProduct()
+        window.scrollTo(0, 0);
     }, [])
-    return <>
-        <div className="mb-4 mt-20 mx-[5%] text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white flex justify-left">Danh Sách Sản Phẩm {category?.name} </div>
-        <div className="grid grid-cols-5 gap-3 mt-[100px]">
-            {products.map(product => <Product
-                data={product}
-                key={product._id} />)}
-        </div></>
+    return <div className="">
+        <div className=" mt-20 mx-[5%] text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white flex justify-left">Danh Sách Sản Phẩm {category?.name} </div>
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 space-y-10 md:space-y-0 my-10">
+
+            {products && products.length > 0 ? products.map(product => <Product
+                product={product}
+                key={product._id} />) : (
+                <div className="block mx-auto my-10 text-center text-[#24] font-semibold text-gray-900 sm:text-3xl ">Sản phẩm chưa đc cập nhật</div>
+            )}
+        </div>
+    </div>
 }
 
 export default CategoryProducts
