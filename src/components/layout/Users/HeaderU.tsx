@@ -7,7 +7,7 @@ import {
   Tabs,
   TabsProps,
 } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SliderImage from "./slider";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
@@ -15,6 +15,7 @@ const HeaderU = () => {
   const [showForm, setShowForm] = useState(true);
   const [search, setSearch] = useState("");
   const toggleForm = () => {
+
     setShowForm(!showForm);
   };
   const hiddenForm = () => {
@@ -80,7 +81,9 @@ const HeaderU = () => {
     },
     {
       key: "7",
-      label: `Tin tức`,
+      label: (
+        <NavLink to={`/blog`}>Blog</NavLink>
+      )
     },
     {
       key: "8",
@@ -91,9 +94,8 @@ const HeaderU = () => {
     <>
       <div
         onClick={hiddenForm}
-        className={` ${
-          showForm ? "" : "fixed inset-0 flex bg-black bg-opacity-50"
-        }`}
+        className={` ${showForm ? "" : "fixed inset-0 flex bg-black bg-opacity-50"
+          }`}
       >
         <header
           className={`${showForm ? "bg-white" : "bg-black fixed w-full"}`}
@@ -101,9 +103,8 @@ const HeaderU = () => {
           <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div className={`flex h-16 items-center justify-between`}>
               <div
-                className={`${
-                  showForm ? "md:flex md:items-center md:gap-12" : "hidden"
-                }`}
+                className={`${showForm ? "md:flex md:items-center md:gap-12" : "hidden"
+                  }`}
               >
                 <a className="block text-teal-600" href="/">
                   <img
@@ -127,9 +128,8 @@ const HeaderU = () => {
                     onSubmit={toggleForm}
                     type="text"
                     onClick={(e) => e.stopPropagation()}
-                    className={` ${
-                      showForm ? "hidden z-[-50]" : "w-full rounded-lg"
-                    }`}
+                    className={` ${showForm ? "hidden z-[-50]" : "w-full rounded-lg"
+                      }`}
                     placeholder="Tìm kiếm"
                   />
                 </nav>

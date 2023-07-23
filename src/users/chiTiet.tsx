@@ -18,12 +18,10 @@ const Detail = () => {
       const searchData: ISearchProduct = { category_id: product.category_id };
       const { data } = await searchProductsCategoryDetail(searchData);
       setProductCategory(data);
-      console.log(searchData);
     };
     fetchProductCategory();
+    window.scrollTo(0, 0);
   }, [id]);
-  console.log(productCategory);
-
   return (
     <>
       <nav aria-label="Breadcrumb " className="bg-[#F5F5F7]">

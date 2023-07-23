@@ -13,7 +13,7 @@ const Home = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [category, setCategory] = useState<ICategory[]>([]);
   const [mess, setMess] = useState("");
-  const { register, handleSubmit } = useForm<ISearchProductName>({});
+  // const { register, handleSubmit } = useForm<ISearchProductName>({});
   const formatter = (value: number) =>
     `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   useEffect(() => {
@@ -35,20 +35,21 @@ const Home = () => {
       }
     };
     fetchCategory();
+    window.scrollTo(0, 0);
   }, []);
-  const onSubmit = async (data: ISearchProductName) => {
-    try {
-      const search = await searchProductsName(data);
-      if (search.data.checkSearchName.length === 0) {
-        setMess("Sản phẩm không tồn tại");
-        setProducts([]);
-      } else {
-        setProducts(search.data.checkSearchName);
-      }
-    } catch (errors) {
-      console.log(errors);
-    }
-  };
+  // const onSubmit = async (data: ISearchProductName) => {
+  //   try {
+  //     const search = await searchProductsName(data);
+  //     if (search.data.checkSearchName.length === 0) {
+  //       setMess("Sản phẩm không tồn tại");
+  //       setProducts([]);
+  //     } else {
+  //       setProducts(search.data.checkSearchName);
+  //     }
+  //   } catch (errors) {
+  //     console.log(errors);
+  //   }
+  // };
   return (
     <>
       <SliderImage />
