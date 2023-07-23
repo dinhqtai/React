@@ -28,6 +28,9 @@ export const searchProductsCategoryDetail = (data: ISearchProduct) => {
 export const searchProductsName = (data: ISearchProductName) => {
   return instance.post("/searchProductsName", data);
 };
+export const searchProductsNameOne = (data: ISearchProductName) => {
+  return instance.post("/searchProductsNameOne", data);
+};
 export const searchPriceSort = () => {
   return instance.get("/searchPriceSort");
 };

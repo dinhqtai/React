@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Product from "../components/products";
 import { IProduct } from "../models";
-import { getAll, searchProductsName } from "../api/products";
+import { getAll, searchProductsName, searchProductsNameOne } from "../api/products";
 import { getAllCategory } from "../api/category";
 import { ICategory } from "../model/category";
+import Product from "../components/products";
 import Category from "../components/category";
 import { useForm } from "react-hook-form";
 import { ISearchProductName } from "../model/products";
@@ -12,7 +12,7 @@ import SliderImage from "../components/layout/Users/slider";
 const Home = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [category, setCategory] = useState<ICategory[]>([]);
-  const { register, handleSubmit } = useForm<ISearchProductName>({})
+  const { register, handleSubmit } = useForm<ISearchProductName>()
   const formatter = (value: number) =>
     `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   useEffect(() => {
@@ -38,13 +38,12 @@ const Home = () => {
   }, []);
   const onSubmit = async (data: ISearchProductName) => {
     try {
-      console.log(data);
       const search = await searchProductsName(data);
-
-      if (search.data.checkSearchName.length === 0) {
-        setProducts([]);
-      } else {
+      if (search.data.checkSearchName.length != 0) {
         setProducts(search.data.checkSearchName);
+      } else {
+        const searchOne = await searchProductsNameOne(data);
+        setProducts(searchOne.data.checkSearchNameOne);
       }
     } catch (errors) {
       console.log(errors);
@@ -103,8 +102,8 @@ const Home = () => {
           </svg>
         </button>
       </div>
-      <form action="" className="flex items-center justify-center p-4 bg-gray-100 rounded-lg" >
-        <button type='submit' onClick={handleSubmit(onSubmit)}>
+      <form action="" onClick={handleSubmit(onSubmit)} className="flex items-center justify-center p-4 bg-gray-100 rounded-lg" >
+        <button type='submit' >
           <svg viewBox="64 64 896 896" className="w-5 h-5 mr-2 text-gray-500">
             <path
               fill="#000000"
@@ -114,60 +113,23 @@ const Home = () => {
         </button>
         <input
           className="w-1/3 py-2 bg-transparent border-b border-gray-400 focus:outline-none"
+          {...register("name")}
           type="text"
           placeholder="Tìm kiếm sản phẩm..."
         />
+      </form>
+      <form action="">
+        <input type="text" placeholder="MIN" />
+        <input type="text" placeholder="MAX" />
+        <button>APPLY</button>
       </form>
       <div className="py-10 z-[-99]">
         <h2 className="text-center font-bold text-[30px]">iPhone</h2>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 space-y-10 md:space-y-0 my-10">
           {products && products.length > 0 ? (
-            products.map((product: IProduct) => (
-              <NavLink key={product._id} to={`detail/${product._id}`}>
-                <div
-                  key={product._id}
-                  className="group z-[-99] relative border shadow rounded-[10px] p-4 w-[250px]"
-                >
-                  <div className="flex justify-center items-center min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 lg:h-50">
-                    <img
-                      title="image"
-                      src={product.images}
-                      className="h-full w-full m-4 object-cover object-center lg:h-full lg:w-full"
-                    />
-                  </div>
-
-                  <div className="mt-4">
-                    <h3 className="text-[#1D1D1F] font-bold text-[18px]">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.name}
-                    </h3>
-                  </div>
-
-                  <div className="flex items-center mt-4">
-                    <span className="text-[#0066CC] font-bold text-[16px]">
-                      {formatter(product.price)}
-                    </span>
-                    <del className="ml-3 text-[14px] font-semibold text-[#707070]">
-                      {formatter(product.price)}
-                    </del>
-                  </div>
-
-                  <div className="mt-4 text-[#f59e0b] text-[13px]">
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                  </div>
-
-                  <div className="flex justify-end items-center">
-                    <span className="text-[#777] text-[12px]">Yêu thích</span>
-                    <i className="fa-regular fa-heart text-red-400 ml-1 mt-1"></i>
-                  </div>
-                </div>
-              </NavLink>
-            ))
+            products.map(product => <Product product={product} key={product._id} />
+            )
           ) : (
             <div>Không có dữ liệu</div>
           )}
