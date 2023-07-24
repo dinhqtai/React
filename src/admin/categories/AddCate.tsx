@@ -58,13 +58,14 @@ const AddCate: React.FC = () => {
             </Form.Item>
           </div>
           <div>
-            <Form.Item className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm' name="image" label="Thêm ảnh" rules={[{ required: true }]}>
+            <Form.Item className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm' name="image" label="Thêm ảnh"
+              rules={[{ required: true }]}>
               <Input className="rounded-md" />
-            </Form.Item>
+            </Form.Item >
           </div>
           <Button type="primary" ghost htmlType="submit">
             Thêm mới
-          </Button>
+          </Button>Ư
         </Form>
       </div>
     </div>

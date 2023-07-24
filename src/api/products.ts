@@ -31,6 +31,9 @@ export const searchProductsName = (data: ISearchProductName) => {
 export const searchProductsNameOne = (data: ISearchProductName) => {
   return instance.post("/searchProductsNameOne", data);
 };
+export const searchProducts = (data: ISearchProductName) => {
+  return instance.post("/searchProducts", data);
+};
 export const searchPriceSort = () => {
   return instance.get("/searchPriceSort");
 };

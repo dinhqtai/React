@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IProduct } from "../models";
-import { getAll, searchProductsName, searchProductsNameOne } from "../api/products";
+import { getAll, searchProducts, searchProductsName, searchProductsNameOne } from "../api/products";
 import { getAllCategory } from "../api/category";
 import { ICategory } from "../model/category";
 import Product from "../components/products";
@@ -45,6 +45,15 @@ const Home = () => {
         const searchOne = await searchProductsNameOne(data);
         setProducts(searchOne.data.checkSearchNameOne);
       }
+    } catch (errors) {
+      console.log(errors);
+    }
+  };
+  const onSubmitPrice = async (data: ISearchProductName) => {
+    try {
+      const search = await searchProducts(data);
+      setProducts(search.data)
+
     } catch (errors) {
       console.log(errors);
     }
@@ -117,11 +126,15 @@ const Home = () => {
           type="text"
           placeholder="Tìm kiếm sản phẩm..."
         />
+        {/* <div className="flex">
+          <input type="text" placeholder="MIN" {...register("priceMin")} />
+          <input type="text" placeholder="MAX" {...register("priceMax")} />
+        </div> */}
       </form>
-      <form action="">
-        <input type="text" placeholder="MIN" />
-        <input type="text" placeholder="MAX" />
-        <button>APPLY</button>
+      <form className="flex">
+        <input type="text" placeholder="MIN" {...register("priceMin")} />
+        <input type="text" placeholder="MAX" {...register("priceMax")} />
+        <button onClick={handleSubmit(onSubmitPrice)}>APPLAY</button>
       </form>
       <div className="py-10 z-[-99]">
         <h2 className="text-center font-bold text-[30px]">iPhone</h2>
