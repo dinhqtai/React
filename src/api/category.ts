@@ -1,20 +1,21 @@
 import instance from ".";
+import { AddCategory, UpdateCategory } from "../model/category";
 import { IProduct, SignupForm, category } from "../models";
 
-export const getAllcategory = () => {
+export const getAllCategory = () => {
     const uri = "/category"
     return instance.get(uri)
 }
-export const getByIdcategory = (id: String) => {
+export const getByIdCategory = (id: String) => {
     const uri = "/category/" + id
     return instance.get(uri)
 }
-export const deleteIdcategory = (id: String) => {
+export const deleteIdCategory = (id: String) => {
     return instance.delete("/category/" + id)
 }
-export const postIdcategory = (data: category) => {
+export const postIdcategory = (data: AddCategory) => {
     return instance.post("/category/", data)
 }
-export const putIdcategory = (id: String) => {
-    return instance.put("/category/" + id)
+export const putIdcategory = (id: String, data: UpdateCategory) => {
+    return instance.put("/category/" + id, data)
 }
