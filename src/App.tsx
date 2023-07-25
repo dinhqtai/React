@@ -23,6 +23,7 @@ import { AdminUser } from "./admin/users/ListUser";
 import Detail from "./users/chiTiet";
 import MainPage from "./components/layout/Users/MainPage";
 import { AdminShowCategory } from "./admin/categories/ListCate";
+import { SearchPage } from "./users/Search/search";
 function App() {
   return (
     <BrowserRouter>
@@ -36,6 +37,10 @@ function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="detail/:id" element={<Detail />} />
           <Route path="danhMuc/:idCategory" element={<CategoryProducts />} />
+          <Route
+            path="/search/keyword/:searchValue?"
+            element={<SearchPage />}
+          />
         </Route>
       </Routes>
       <Routes>

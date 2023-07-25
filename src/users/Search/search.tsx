@@ -1,62 +1,93 @@
-import React, { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-const Search = () => {
-  const [showForm, setShowForm] = useState(false);
+import { NavLink, useParams } from "react-router-dom";
+import { IProduct } from "../../models";
+import { getAll } from "../../api/products";
 
-  const toggleForm = () => {
-    setShowForm(!showForm);
-  };
+export const SearchPage = () => {
+  const formatter = (value: number) =>
+    `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const { searchValue = "" } = useParams<{ searchValue: string }>();
+
+  useEffect(() => {
+    async function fetchProduct() {
+      let { data } = await getAll();
+      setProducts(data);
+    }
+    fetchProduct();
+  }, []);
+
+  const filteredProducts = useMemo(
+    () =>
+      products.filter((product: IProduct) =>
+        product.name.toLowerCase().includes(searchValue.toLowerCase())
+      ),
+    [products, searchValue]
+  );
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      {/* Trang chủ */}
-      <button
-        onClick={toggleForm}
-        className="px-4 py-2 text-white bg-blue-500 rounded"
-      >
-        Sign Up
-      </button>
-
-      {/* Form sign up */}
-      {showForm && (
-        <div
-          onClick={toggleForm}
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
-        >
-          <div className="bg-white p-4 rounded shadow-md">
-            {/* Nội dung form sign up sẽ ở đây */}
-            <h2 className="text-2xl font-bold mb-4">Sign Up Form</h2>
-            <form>
-              <label htmlFor="email" className="block mb-2">
-                Email:
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="w-full border border-gray-300 rounded px-2 py-1 mb-4"
-              />
-
-              <label htmlFor="password" className="block mb-2">
-                Password:
-              </label>
-              <input
-                type="password"
-                id="password"
-                className="w-full border border-gray-300 rounded px-2 py-1 mb-4"
-              />
-
-              <button
-                type="submit"
-                className="w-full px-4 py-2 bg-blue-500 text-white rounded"
+    <div>
+      {filteredProducts && filteredProducts.length > 0 ? (
+        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-4 sm:grid-cols-2 lg:grid-cols-4 shadow-2xl place-items-center rounded-lg p-1">
+          {filteredProducts.map((product: IProduct) => (
+            <NavLink key={product._id} to={`detail/${product._id}`}>
+              <div
+                key={product._id}
+                className="group z-[-99] relative border shadow rounded-[10px] p-4 w-[300px]"
               >
-                Sign Up
-              </button>
-            </form>
-          </div>
+                <div className="flex justify-center items-center min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 lg:h-50">
+                  <img
+                    title="image"
+                    src={product.images[0].base_url}
+                    className="h-full w-full m-4 object-cover object-center lg:h-full lg:w-full"
+                  />
+                </div>
+
+                <div className="mt-4">
+                  <h3 className="text-[#1D1D1F] font-bold text-[18px]">
+                    <span aria-hidden="true" className="absolute inset-0" />
+                    {product.name}
+                  </h3>
+                </div>
+
+                <div className="flex items-center mt-4 space-x-4">
+                  <span className="text-[#0066CC] font-bold text-[16px]">
+                    {formatter(product?.variants[0]?.price)}
+                  </span>
+                  <span className="text-[#86868B] line-through text-[14px]">
+                    {formatter(product?.variants[0]?.original_price)}
+                  </span>
+                  <span className="text-[#86868B] text-[14px]">
+                    -
+                    {Math.round(
+                      ((product?.variants[0]?.original_price -
+                        product?.variants[0]?.price) /
+                        product?.variants[0]?.original_price) *
+                        100
+                    )}
+                    %
+                  </span>
+                </div>
+
+                <div className="mt-4 text-[#f59e0b] text-[13px]">
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </NavLink>
+          ))}
+        </div>
+      ) : (
+        <div className="flex justify-center items-center">
+          <span className="m-10 text-[18px] font-semibold">
+            Không có kết quả
+          </span>
         </div>
       )}
     </div>
   );
 };
-
-export default Search;

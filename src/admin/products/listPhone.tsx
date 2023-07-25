@@ -16,7 +16,7 @@ interface DataType {
   description: string;
   images: string;
   brand: string;
-  category_id: string
+  category_id: string;
 }
 
 const columns: ColumnsType<DataType> = [
@@ -25,7 +25,7 @@ const columns: ColumnsType<DataType> = [
     title: "Tên",
     dataIndex: "name",
     align: "center",
-    width: "10%",
+    width: "20%",
   },
   {
     key: "price",
@@ -141,19 +141,19 @@ export const ListPhone: React.FC = () => {
       let { data } = await getAll();
       setProducts(
         data.map((item: IProduct) => {
-          // // const fetchCategory = async () => {
-          // //   const { data } = await getByIdcategory(item.category_id)
-          // // }
-          // fetchCategory()
-          //Chưa biết fix
+          const fetchCategory = async () => {
+            const { data } = await getByIdCategory(item.category_id);
+          };
+          fetchCategory();
+
           return {
             key: item._id,
             name: item.name,
-            price: item.price,
-            soLuong: item.soLuong,
+            price: item?.variants[0]?.price,
+            soLuong: item?.variants[0]?.soLuong,
             description: item.desc,
-            images: item.images,
-            category_id: item.category_id
+            images: item.images[0].base_url,
+            category_id: item.category_id,
           };
         })
       );
