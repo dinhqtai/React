@@ -4,6 +4,7 @@ import { IProduct, SigninForm, SignupForm,signinSchema, updateForm, uploadUsers 
 export const getAllUsers = () => {
     const uri = "/users"
     return instance.get(uri)
+    
 }
 export const getByIdUsers = (id: String) => {
     const uri = "/users/" + id
