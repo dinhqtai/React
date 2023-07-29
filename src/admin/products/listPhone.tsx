@@ -139,6 +139,7 @@ export const ListPhone: React.FC = () => {
   useEffect(() => {
     async function fetchProduct() {
       let { data } = await getAll();
+      console.log(data)
       setProducts(
         data.map((item: IProduct) => {
           // // const fetchCategory = async () => {
@@ -153,7 +154,7 @@ export const ListPhone: React.FC = () => {
             soLuong: item.soLuong,
             description: item.desc,
             images: item.images,
-            category_id: item.category_id
+            category_id: item.category_id?.name
           };
         })
       );

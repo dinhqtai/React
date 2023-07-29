@@ -65,7 +65,7 @@ const AddCate: React.FC = () => {
           </div>
           <Button type="primary" ghost htmlType="submit">
             Thêm mới
-          </Button>Ư
+          </Button>
         </Form>
       </div>
     </div>
