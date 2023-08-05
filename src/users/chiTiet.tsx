@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { IProduct } from "../models";
+import { IProduct, ISearchProduct } from "../models";
 import { useParams } from "react-router-dom";
 import { getById, searchProductsCategoryDetail } from "../api/products";
-import { ISearchProduct } from "../model/products";
 
 const Detail = () => {
+  const formatter = (value: number) =>
+    `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   const [product, setProduct] = useState<IProduct>({} as IProduct);
   const [productCategory, setProductCategory] = useState<IProduct[]>([]);
   const { id } = useParams();
@@ -98,34 +99,23 @@ const Detail = () => {
             <div className="grid grid-cols-2   p-6  gap-4 md:grid-cols-1">
               <img
                 alt="Les Paul"
-                src={product.images}
+                src={product.images?.[0].base_url}
                 className="aspect-square bg-[#F5F5F7]  p-6 w-full rounded-xl object-cover"
               />
 
               <div className="grid grid-cols-4 gap-4 lg:mt-4">
-                <img
-                  alt="Les Paul"
-                  src={product.images}
-                  className="aspect-square w-full rounded-xl object-cover"
-                />
-
-                <img
-                  alt="Les Paul"
-                  src={product.images}
-                  className="aspect-square w-full rounded-xl object-cover"
-                />
-
-                <img
-                  alt="Les Paul"
-                  src={product.images}
-                  className="aspect-square w-full rounded-xl object-cover"
-                />
-
-                <img
-                  alt="Les Paul"
-                  src={product.images}
-                  className="aspect-square w-full rounded-xl object-cover"
-                />
+                <div className="flex mt-3">
+                  {product.images?.slice(0, 4).map((image, index) => (
+                    <div key={index} className="border rounded-[10px] m-1">
+                      <img
+                        key={index}
+                        className="rounded-[10px] w-16"
+                        src={image.base_url}
+                        alt="mini-product"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -190,7 +180,7 @@ const Detail = () => {
                   </div>
                 </div>
 
-                <p className="text-lg font-bold">{product.price} đ</p>
+                <p className="text-lg font-bold">{formatter(product.price)}</p>
               </div>
 
               <div className="mt-4">

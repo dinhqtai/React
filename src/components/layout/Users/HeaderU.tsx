@@ -8,12 +8,43 @@ import {
   TabsProps,
 } from "antd";
 import React, { useEffect, useState } from "react";
-import SliderImage from "./slider";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { TreeSelect } from "antd";
+import { getAll } from "../../../api/products";
+import { IProduct } from "../../../models";
+import { getByIdCategory } from "../../../api/category";
 
 const HeaderU = () => {
+  const [products, setProducts] = useState<IProduct[]>([]);
   const [showForm, setShowForm] = useState(true);
+  const [searchKeyword, setSearchKeyword] = useState("");
   const [search, setSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    navigate(`/search/keyword/${searchValue}`);
+    setShowForm(!showForm);
+  };
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchKeyword.toLowerCase())
+  );
+
+  const displayProducts = searchKeyword
+    ? filteredProducts
+    : products.slice(0, 6);
+  const fetchAllProducts = async () => {
+    try {
+      const response = await getAll();
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+  useEffect(() => {
+    fetchAllProducts();
+  }, []);
   const toggleForm = () => {
     setShowForm(!showForm);
   };
@@ -37,6 +68,15 @@ const HeaderU = () => {
   const handleOpenChange = (flag: boolean) => {
     setOpen(flag);
   };
+  const treeData = displayProducts.map((product) => ({
+    value: product.name,
+    title: (
+      <div className="flex gap-3 ">
+        <img src={product?.images[0]?.base_url} className="w-[20px]" alt="" />
+        <span className="#fff text-[14px]">{product.name}</span>
+      </div>
+    ),
+  }));
 
   const items: MenuProps["items"] = [
     {
@@ -80,21 +120,26 @@ const HeaderU = () => {
     },
     {
       key: "7",
-      label: (
-        <NavLink to={`/blog`}>Blog</NavLink>
-      )
+      label: <NavLink to={`/blog`}>Blog</NavLink>,
     },
     {
       key: "8",
       label: `Khuyến mại`,
     },
   ];
+  const [value, setValue] = useState<string>();
+
+  const onChangeSearch = (newValue: string) => {
+    setValue(newValue);
+  };
+
   return (
     <>
       <div
         onClick={hiddenForm}
-        className={` ${showForm ? "" : "fixed inset-0 flex bg-black bg-opacity-50"
-          }`}
+        className={` ${
+          showForm ? "" : "fixed inset-0 flex bg-black bg-opacity-50"
+        }`}
       >
         <header
           className={`${showForm ? "bg-white" : "bg-black fixed w-full"}`}
@@ -102,8 +147,9 @@ const HeaderU = () => {
           <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div className={`flex h-16 items-center justify-between`}>
               <div
-                className={`${showForm ? "md:flex md:items-center md:gap-12" : "hidden"
-                  }`}
+                className={`${
+                  showForm ? "md:flex md:items-center md:gap-12" : "hidden"
+                }`}
               >
                 <a className="block text-teal-600" href="/">
                   <img
@@ -123,14 +169,21 @@ const HeaderU = () => {
                       items={itemsTabs}
                     />
                   </ul>
-                  <input
-                    onSubmit={toggleForm}
-                    type="text"
+                  <form
+                    onSubmit={handleSubmit}
+                    className={` ${showForm ? "hidden z-[-50]" : ""}`}
                     onClick={(e) => e.stopPropagation()}
-                    className={` ${showForm ? "hidden z-[-50]" : "w-full rounded-lg"
-                      }`}
-                    placeholder="Tìm kiếm"
-                  />
+                  >
+                    <input
+                      type="text"
+                      id="search"
+                      value={searchValue}
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      placeholder="Tìm kiếm sản phẩm"
+                      className="rounded-full pl-8 py-2 pr-4 w-full focus:outline-none focus:ring focus:ring-[#1677FF] text-sm md:text-base text-black"
+                    />
+                    <i className="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-[14px] text-black"></i>
+                  </form>
                 </nav>
               </div>
 

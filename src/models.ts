@@ -1,12 +1,41 @@
 import * as Yup from "yup";
+export interface ISearchProduct {
+  category_id: string;
+}
+
+export interface ISearchProductName {
+  priceMax: string;
+  priceMin: string;
+}
 export interface IProduct {
   _id: string;
   name: string;
-  price: number;
+
   desc: string;
-  images: string;
-  category_id: IName;
-  soLuong: string;
+  images: IImage[];
+  category_id: string;
+
+  short_description: string;
+  specifications: ISpecification;
+  variants: IVariants[];
+}
+export interface IVariants {
+  nameColor: string;
+  codeColor: string;
+  capacity: string;
+  price: number;
+  original_price: number;
+  soLuong: number;
+}
+export interface IImage {
+  base_url: string;
+  is_gallery: boolean;
+  label: null | string;
+  large_url: string;
+  medium_url: string;
+  position: null | number;
+  small_url: string;
+  thumbnail_url: string;
 }
 interface IName {
   _id?: string;
@@ -23,7 +52,7 @@ export interface IUser {
   name: string;
   email: string;
   phone: string;
-  money: number
+  money: number;
   password: string;
   role: string;
 }
@@ -50,6 +79,19 @@ export interface searchDiscount {
 export interface ISpecification {
   name: string;
   attributes: { code: string; name: string; value: string }[];
+}
+export interface ICategory {
+  _id: string;
+  name: string;
+  image: string;
+}
+export interface AddCategory {
+  name: string;
+  image: string;
+}
+export interface UpdateCategory {
+  name: string;
+  image: string;
 }
 export const signupSchema = Yup.object({
   name: Yup.string().max(15, "Tối đa 15 kí tự").min(5, "Tối thiểu 5 kí tự"),

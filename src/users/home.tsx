@@ -1,20 +1,28 @@
 import { useEffect, useState } from "react";
-import { IProduct } from "../models";
-import { getAll, searchProducts, searchProductsName, searchProductsNameOne } from "../api/products";
+import { ICategory, IProduct, ISearchProductName } from "../models";
+import {
+  getAll,
+  searchProducts,
+  searchProductsName,
+  searchProductsNameOne,
+} from "../api/products";
 import { getAllCategory } from "../api/category";
-import { ICategory } from "../model/category";
 import Product from "../components/products";
 import Category from "../components/category";
 import { useForm } from "react-hook-form";
-import { ISearchProductName } from "../model/products";
 import { NavLink } from "react-router-dom";
 import SliderImage from "../components/layout/Users/slider";
 const Home = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [category, setCategory] = useState<ICategory[]>([]);
-  const { register, handleSubmit } = useForm<ISearchProductName>()
+  const { register, handleSubmit } = useForm<ISearchProductName>();
+  const { register: registerPrice, handleSubmit: handleSubmitPrice } =
+    useForm<ISearchProductName>();
   const formatter = (value: number) =>
     `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+  // ... rest of the code ...
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -51,13 +59,37 @@ const Home = () => {
   };
   const onSubmitPrice = async (data: ISearchProductName) => {
     try {
-      const search = await searchProducts(data);
-      setProducts(search.data)
+      // Convert the price values to strings
+      const minPrice = data.priceMin.toString();
+      const maxPrice = data.priceMax.toString();
 
+      // If both price fields are empty, reset the products to show all products
+      if (minPrice === "" && maxPrice === "") {
+        const { data: allProducts } = await getAll();
+        setProducts(allProducts);
+        return;
+      }
+
+      // If minPrice is not provided, set it to "0"
+      const min = minPrice === "" ? "0" : minPrice;
+      // If maxPrice is not provided, set it to a very high value to include all higher prices
+      const max = maxPrice === "" ? "999999999" : maxPrice;
+
+      // Prepare the search object with the min and max prices as strings
+      const searchObj: ISearchProductName = {
+        ...data,
+        priceMin: min,
+        priceMax: max,
+      };
+
+      // Call the searchProducts function with the updated search object
+      const search = await searchProducts(searchObj);
+      setProducts(search.data);
     } catch (errors) {
       console.log(errors);
     }
   };
+
   return (
     <>
       <SliderImage />
@@ -88,10 +120,13 @@ const Home = () => {
         <h2 className="text-center font-bold text-[30px]">Danh Mục</h2>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 space-y-10 md:space-y-0 my-10">
-          {category && category.length > 0 ? category.map(category => <Category data={category} key={category._id} />) : (
+          {category && category.length > 0 ? (
+            category.map((category) => (
+              <Category data={category} key={category._id} />
+            ))
+          ) : (
             <div>Không có dữ liệu</div>
-          )
-          }
+          )}
         </div>
         <button className="border-[#0066CC]-50 border-2 border-[#0066CC] hover:bg-[#0066CC] rounded-lg py-2 px-10 mx-auto hover:text-white text-[#0066CC] text-[14px] flex items-center">
           Xem tất cả danh mục
@@ -111,8 +146,12 @@ const Home = () => {
           </svg>
         </button>
       </div>
-      <form action="" onClick={handleSubmit(onSubmit)} className="flex items-center justify-center p-4 bg-gray-100 rounded-lg" >
-        <button type='submit' >
+      <form
+        action=""
+        onClick={handleSubmit(onSubmit)}
+        className="flex items-center justify-center p-4 bg-gray-100 rounded-lg"
+      >
+        <button type="submit">
           <svg viewBox="64 64 896 896" className="w-5 h-5 mr-2 text-gray-500">
             <path
               fill="#000000"
@@ -120,29 +159,25 @@ const Home = () => {
             />
           </svg>
         </button>
-        <input
-          className="w-1/3 py-2 bg-transparent border-b border-gray-400 focus:outline-none"
-          {...register("name")}
-          type="text"
-          placeholder="Tìm kiếm sản phẩm..."
-        />
+
         {/* <div className="flex">
           <input type="text" placeholder="MIN" {...register("priceMin")} />
           <input type="text" placeholder="MAX" {...register("priceMax")} />
         </div> */}
       </form>
-      <form className="flex">
-        <input type="text" placeholder="MIN" {...register("priceMin")} />
-        <input type="text" placeholder="MAX" {...register("priceMax")} />
-        <button onClick={handleSubmit(onSubmitPrice)}>APPLAY</button>
+      <form className="flex" onSubmit={handleSubmitPrice(onSubmitPrice)}>
+        <input type="text" placeholder="MIN" {...registerPrice("priceMin")} />
+        <input type="text" placeholder="MAX" {...registerPrice("priceMax")} />
+        <button type="submit">APPLY</button>
       </form>
       <div className="py-10 z-[-99]">
         <h2 className="text-center font-bold text-[30px]">iPhone</h2>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 space-y-10 md:space-y-0 my-10">
           {products && products.length > 0 ? (
-            products.map(product => <Product product={product} key={product._id} />
-            )
+            products.map((product) => (
+              <Product product={product} key={product._id} />
+            ))
           ) : (
             <div>Không có dữ liệu</div>
           )}

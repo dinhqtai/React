@@ -1,6 +1,11 @@
 import instance from ".";
-import { ISearchProduct, ISearchProductName } from "../model/products";
-import { IProduct, postProducts, updateForm } from "../models";
+import {
+  IProduct,
+  ISearchProduct,
+  ISearchProductName,
+  postProducts,
+  updateForm,
+} from "../models";
 
 export const getAll = () => {
   const uri = "/products";
@@ -13,10 +18,10 @@ export const getById = (id: String) => {
 export const deleteId = (id: String) => {
   return instance.delete("/products/" + id);
 };
-export const postId = (data: postProducts) => {
+export const postId = (data: IProduct) => {
   return instance.post("/products", data);
 };
-export const putId = (id: any, data: updateForm) => {
+export const putId = (id: any, data: IProduct) => {
   return instance.put("/products/" + id, data);
 };
 export const searchProductsCategory = (data: ISearchProduct) => {
@@ -34,6 +39,7 @@ export const searchProductsNameOne = (data: ISearchProductName) => {
 export const searchProducts = (data: ISearchProductName) => {
   return instance.post("/searchProducts", data);
 };
+
 export const searchPriceSort = () => {
   return instance.get("/searchPriceSort");
 };

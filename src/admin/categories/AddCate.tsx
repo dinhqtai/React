@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
-import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { Button, Form, Input, message, Upload } from 'antd';
-import { postIdcategory } from '../../api/category';
-import { AddCategory } from '../../model/category';
-import { useNavigate } from 'react-router-dom';
-//Update ảnh 
+import React, { useEffect } from "react";
+import { UploadOutlined } from "@ant-design/icons";
+import type { UploadProps } from "antd";
+import { Button, Form, Input, message, Upload } from "antd";
+
+import { useNavigate } from "react-router-dom";
+import { AddCategory } from "../../models";
+import { postIdcategory } from "../../api/category";
+//Update ảnh
 // const props: UploadProps = {
 //   name: 'file',
 //   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -36,7 +37,6 @@ const AddCate: React.FC = () => {
     } else {
       throw new Error("Thêm danh mục thất bại!");
     }
-
   };
   return (
     <div>
@@ -45,11 +45,13 @@ const AddCate: React.FC = () => {
       </div>
 
       <div className="mt-5">
-
         <Form
-          onFinish={onFinish} className="mx-auto mb-0 mt-8 max-w-md space-y-4 mb-9">
+          onFinish={onFinish}
+          className="mx-auto mb-0 mt-8 max-w-md space-y-4 mb-9"
+        >
           <div>
-            <Form.Item className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
+            <Form.Item
+              className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               name="name"
               label="Tên sản phẩm"
               rules={[{ required: true }]}
@@ -58,10 +60,14 @@ const AddCate: React.FC = () => {
             </Form.Item>
           </div>
           <div>
-            <Form.Item className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm' name="image" label="Thêm ảnh"
-              rules={[{ required: true }]}>
+            <Form.Item
+              className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+              name="image"
+              label="Thêm ảnh"
+              rules={[{ required: true }]}
+            >
               <Input className="rounded-md" />
-            </Form.Item >
+            </Form.Item>
           </div>
           <Button type="primary" ghost htmlType="submit">
             Thêm mới
