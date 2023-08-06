@@ -1,119 +1,339 @@
-import { Link } from "react-router-dom"
-import { useParams } from "react-router-dom"
-import { IProduct } from "../models"
-import { useEffect, useState } from "react"
-import { getById, searchProductsCategoryDetail } from "../api/products"
-import { ISearchProduct } from "../model/products"
-import Product from "../components/products"
-const ChiTiet = () => {
-    const [product, setProduct] = useState<IProduct>({} as IProduct)
-    const [productCategory, setProductCategory] = useState<IProduct[]>([])
-    const { id } = useParams();
-    useEffect(() => {
-        const fetchProductById = async () => {
-            const { data } = await getById(String(id));
-            setProduct(data);
-        }
-        fetchProductById();
-        const fetchProductCategory = async () => {
-            const searchData: ISearchProduct = { category_id: product.category_id };
-            const { data } = await searchProductsCategoryDetail(searchData);
-            setProductCategory(data);
-            console.log(searchData);
+import React, { useEffect, useState } from "react";
+import { IProduct } from "../models";
+import { useParams } from "react-router-dom";
+import { getById, searchProductsCategoryDetail } from "../api/products";
+import { ISearchProduct } from "../model/products";
 
-        }
-        fetchProductCategory();
-    }, [id]);
-    return <div>
-        {/* detail */}
-        <section className="overflow-hidden bg-white py-11 font-poppins dark:bg-gray-800">
-            <div className="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
-                <div className="flex flex-wrap -mx-4">
-                    <div className="w-full mb-8 md:w-1/2 md:mb-0">
-                        <div className="sticky top-0 z-50 overflow-hidden ">
-                            <div className="relative mb-6 lg:mb-10 lg:h-2/4 ">
-                                <img src={product.images} alt=""
-                                    className="object-cover w-full lg:h-full " />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w-full px-4 md:w-1/2 ">
-                        <div className="lg:pl-20">
-                            <div className="mb-8 ">
-                                <h2 className="max-w-xl mb-6 text-2xl font-bold dark:text-gray-400 md:text-4xl">
-                                    {product.name}</h2>
-                                <p className="inline-block mb-6 text-4xl font-bold text-gray-700 dark:text-gray-400 ">
-                                    <span>{product.price}</span>
-                                </p>
-                                <p className="max-w-md text-gray-700 dark:text-gray-400">
-                                    {product.desc}
-                                </p>
-                            </div>
-                            <div className="w-32 mb-8 ">
-                                <label
-                                    className="w-full pb-1 text-xl font-semibold text-gray-700 border-b border-blue-300 dark:border-gray-600 dark:text-gray-400">Quantity</label>
-                                <div className="relative flex flex-row w-full h-10 mt-6 bg-transparent rounded-lg">
-                                    <button
-                                        className="w-20 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-400">
-                                        <span className="m-auto text-2xl font-thin">-</span>
-                                    </button>
-                                    <input type="number"
-                                        className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-300 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
-                                        placeholder="1" />
-                                    <button
-                                        className="w-20 h-full text-gray-600 bg-gray-300 rounded-r outline-none cursor-pointer dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-400">
-                                        <span className="m-auto text-2xl font-thin">+</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="flex flex-wrap items-center gap-4">
-                                <button
-                                    className="w-full p-4 bg-blue-500 rounded-md lg:w-2/5 dark:text-gray-200 text-gray-50 hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700">
-                                    Buy now</button>
-                                <button
-                                    className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md lg:w-2/5 dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-500 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
-                                    Add to cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+const Detail = () => {
+  const [product, setProduct] = useState<IProduct>({} as IProduct);
+  const [productCategory, setProductCategory] = useState<IProduct[]>([]);
+  const { id } = useParams();
+  useEffect(() => {
+    const fetchProductById = async () => {
+      const { data } = await getById(String(id));
+      setProduct(data);
+    };
+    fetchProductById();
+    const fetchProductCategory = async () => {
+      const searchData: ISearchProduct = { category_id: product.category_id };
+      const { data } = await searchProductsCategoryDetail(searchData);
+      setProductCategory(data);
+    };
+    fetchProductCategory();
+    window.scrollTo(0, 0);
+  }, [id]);
+  return (
+    <>
+      <nav aria-label="Breadcrumb " className="bg-[#F5F5F7]">
+        <ol className="flex  items-center mx-auto max-w-screen-xl px-4 py-2 gap-1 text-sm text-gray-600">
+          <li>
+            <a href="#" className="block transition hover:text-gray-700">
+              <span className="sr-only"> Home </span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+            </a>
+          </li>
+
+          <li className="rtl:rotate-180">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </li>
+
+          <li>
+            <a href="#" className="block transition hover:text-gray-700">
+              {" "}
+              iPhone{" "}
+            </a>
+          </li>
+
+          <li className="rtl:rotate-180">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </li>
+
+          <li>
+            <a href="#" className="block transition hover:text-gray-700">
+              {" "}
+              iPhone 14 series{" "}
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <section>
+        <div className=" mx-auto max-w-screen-xl px-4 py-8">
+          <div className="grid grid-cols-1  items-start gap-8 md:grid-cols-2">
+            <div className="grid grid-cols-2   p-6  gap-4 md:grid-cols-1">
+              <img
+                alt="Les Paul"
+                src={product.images}
+                className="aspect-square bg-[#F5F5F7]  p-6 w-full rounded-xl object-cover"
+              />
+
+              <div className="grid grid-cols-4 gap-4 lg:mt-4">
+                <img
+                  alt="Les Paul"
+                  src={product.images}
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+
+                <img
+                  alt="Les Paul"
+                  src={product.images}
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+
+                <img
+                  alt="Les Paul"
+                  src={product.images}
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+
+                <img
+                  alt="Les Paul"
+                  src={product.images}
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+              </div>
             </div>
-        </section>
-        {/* related product */}
-        <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-            <nav id="store" className="w-full z-30 top-0 px-6 py-1">
-                <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
-                    <a className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-                        Related product
-                    </a>
+            <div className="">
+              <strong className="rounded-full border border-blue-600 bg-gray-100 px-3 py-0.5 text-xs font-medium tracking-wide text-blue-600">
+                {product.category_id}
+              </strong>
 
-                    <div className="flex items-center" id="store-nav-content">
+              <div className="mt-8 flex justify-between">
+                <div className="max-w-[35ch] space-y-2">
+                  <h1 className="text-xl font-bold sm:text-2xl">
+                    {product.name}
+                  </h1>
 
-                        <a className="pl-3 inline-block no-underline hover:text-black" href="#">
-                            <svg className="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z"></path>
-                            </svg>
-                        </a>
+                  <p className="text-[14px] text-[#007bff] ">171 đánh giá</p>
 
-                        <a className="pl-3 inline-block no-underline hover:text-black" href="#">
-                            <svg className="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"></path>
-                            </svg>
-                        </a>
+                  <div className="-ms-0.5 flex">
+                    <svg
+                      className="h-5 w-5 text-yellow-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
 
-                    </div>
+                    <svg
+                      className="h-5 w-5 text-yellow-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+
+                    <svg
+                      className="h-5 w-5 text-yellow-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+
+                    <svg
+                      className="h-5 w-5 text-yellow-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+
+                    <svg
+                      className="h-5 w-5 text-gray-200"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  </div>
                 </div>
-                <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    {productCategory ? productCategory.map(product => <Product
-                        data={product}
-                        key={product._id} />) : null}
-                </div>
-            </nav>
 
+                <p className="text-lg font-bold">{product.price} đ</p>
+              </div>
+
+              <div className="mt-4">
+                <div className="prose max-w-none">
+                  <p>{product.desc}</p>
+                </div>
+
+                <button className="mt-2 text-sm font-medium underline">
+                  Read More
+                </button>
+              </div>
+
+              <form className="mt-8">
+                <fieldset>
+                  <legend className="mb-1 text-sm font-medium">
+                    Dung lượng
+                  </legend>
+
+                  <div className="flex flex-wrap gap-1">
+                    <label htmlFor="color_tt" className="cursor-pointer">
+                      <input
+                        type="radio"
+                        name="color"
+                        id="color_tt"
+                        className="peer sr-only"
+                      />
+
+                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                        128GB
+                      </span>
+                    </label>
+
+                    <label htmlFor="color_fr" className="cursor-pointer">
+                      <input
+                        type="radio"
+                        name="color"
+                        id="color_fr"
+                        className="peer sr-only"
+                      />
+
+                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                        256GB
+                      </span>
+                    </label>
+
+                    <label htmlFor="color_cb" className="cursor-pointer">
+                      <input
+                        type="radio"
+                        name="color"
+                        id="color_cb"
+                        className="peer sr-only"
+                      />
+
+                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                        512GB
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <fieldset className="mt-4">
+                  <legend className="mb-1 text-sm font-medium">Màu sắc</legend>
+
+                  <div className="flex flex-wrap gap-1">
+                    <label htmlFor="xam" className="cursor-pointer">
+                      <input
+                        type="radio"
+                        title="xam"
+                        name="size"
+                        id="xam"
+                        className="peer bg-[#4C4B49] sr-only border"
+                      />
+
+                      <span className="group bg-[#4C4B49] inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:border-3 peer-checked:border-[#007bff] peer-checked:p-1  peer-checked:text-white"></span>
+                    </label>
+
+                    <label htmlFor="white" className="cursor-pointer">
+                      <input
+                        type="radio"
+                        title="white"
+                        name="size"
+                        id="white"
+                        className="peer bg-[#4C4B49] sr-only border"
+                      />
+
+                      <span className="group bg-[#E3E5E3] inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:border-3 peer-checked:border-[#007bff] peer-checked:p-1  peer-checked:text-white"></span>
+                    </label>
+
+                    <label htmlFor="yellow" className="cursor-pointer">
+                      <input
+                        type="radio"
+                        title="yellow"
+                        name="size"
+                        id="yellow"
+                        className="peer bg-[#4C4B49] sr-only border"
+                      />
+
+                      <span className="group bg-[#FCEBD3] inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:border-3 peer-checked:border-[#007bff] peer-checked:p-1  peer-checked:text-white"></span>
+                    </label>
+
+                    <label htmlFor="violet" className="cursor-pointer">
+                      <input
+                        type="radio"
+                        title="violet"
+                        name="size"
+                        id="violet"
+                        className="peer bg-[#4C4B49] sr-only border"
+                      />
+
+                      <span className="group bg-[#61586B] inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:border-3 peer-checked:border-[#007bff] peer-checked:p-1  peer-checked:text-white"></span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <div className="mt-8 flex gap-4">
+                  <div>
+                    <label htmlFor="quantity" className="sr-only">
+                      Qty
+                    </label>
+
+                    <input
+                      type="number"
+                      id="quantity"
+                      min="1"
+                      value="1"
+                      className="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-    </div>
-}
+      </section>
+    </>
+  );
+};
 
-export default ChiTiet
+export default Detail;

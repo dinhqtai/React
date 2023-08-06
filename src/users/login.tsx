@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup';
-import { signinUsers, signupUsers } from '../api/users'
+import { signinUsers } from '../api/users'
 import { SigninForm, signinSchema, SignupForm, signupSchema, uploadUsers } from '../models'
 import { useLocalStorage } from '../hooks';
 const Login = () => {
