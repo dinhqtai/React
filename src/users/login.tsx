@@ -7,31 +7,24 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { signinUsers } from '../api/users'
 import { SigninForm, signinSchema, SignupForm, signupSchema, uploadUsers } from '../models'
 import { useLocalStorage } from '../hooks';
+import { useSignInMutation } from '../services/user.service'
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<SigninForm>({
         resolver: yupResolver(signinSchema)
     })
     const navigate = useNavigate()
-
-    const [user, setUser] = useLocalStorage("user", null)
-
+    const [signIn] = useSignInMutation()
     const onSubmit = async (data: SigninForm) => {
         try {
-            const { data: { accessToken, user } } = await signinUsers(data)
-
-            setUser({
-                accessToken,
-                ...user
-            })
-            if (user.role === "admin") {
-                navigate(`/admin/${user._id}`);
-            } else {
-                navigate(`/`)
+            const result = await signIn(data);
+            console.log(result);
+            if (result.data.users.role === "member") {
+                navigate(`/member`);
+            } else if (result.data.users.role === "admin") {
+                navigate(`/admin`);
             }
-
         } catch (err) {
             console.log(err);
-
         }
     }
     return <div className="flex justify-center pt-[150px]">

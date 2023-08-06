@@ -9,6 +9,8 @@ interface DataType {
   email: string;
   password: string;
   role: string;
+  name: string,
+  phone: number
 }
 
 const columns: ColumnsType<DataType> = [
@@ -30,13 +32,6 @@ const columns: ColumnsType<DataType> = [
     key: "phone",
     title: "Số điện thoại",
     dataIndex: "phone",
-    align: "center",
-    width: "10%",
-  },
-  {
-    key: "money",
-    title: "Số dư tài khoản",
-    dataIndex: "money",
     align: "center",
     width: "10%",
   },
@@ -69,7 +64,6 @@ export const AdminUser: React.FC = () => {
             key: item._id,
             name: item.name,
             email: item.email,
-            money: item.money,
             phone: item.phone,
             password: item.password,
             role: item.role,

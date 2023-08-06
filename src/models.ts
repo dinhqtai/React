@@ -19,7 +19,6 @@ export interface IUser {
   name: string;
   email: string;
   phone: string;
-  money: number
   password: string;
   role: string;
 }
@@ -48,7 +47,7 @@ export interface ISpecification {
   attributes: { code: string; name: string; value: string }[];
 }
 export const signupSchema = Yup.object({
-  name: Yup.string().max(15, "Tối đa 15 kí tự").min(5, "Tối thiểu 5 kí tự"),
+  name: Yup.string().max(15, "Tối đa 15 kí tự").min(5, "Tối thiểu 5 kí tự").required(),
   email: Yup.string()
     .email("Email sai định dạng")
     .required("Trường dữ liệu bắt buộc"),
@@ -60,7 +59,7 @@ export const signupSchema = Yup.object({
     [Yup.ref("password")],
     "Mật khẩu không khớp"
   ),
-  // role:Yup.string(),
+  role: Yup.string(),
 });
 
 export type SignupForm = Yup.InferType<typeof signupSchema>;
@@ -72,7 +71,6 @@ export const uploadUsers = Yup.object({
   password: Yup.string()
     .min(6, "Tối thiếu 6 ký tự")
     .required("Trường dữ liệu bắt buộc"),
-  // role:Yup.string(),
 });
 export type uploadUsers = Yup.InferType<typeof uploadUsers>;
 

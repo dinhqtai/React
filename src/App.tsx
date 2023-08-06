@@ -21,6 +21,7 @@ import { AdminUser } from "./admin/users/ListUser";
 import Detail from "./users/chiTiet";
 import MainPage from "./components/layout/Users/MainPage";
 import { AdminShowCategory } from "./admin/categories/ListCate";
+import History from "./users/history";
 function App() {
   return (
     <BrowserRouter>
@@ -32,6 +33,7 @@ function App() {
           <Route path="shop" element={<Shop />} />
           <Route path="blog" element={<Blog />} />
           <Route path="detail/:id" element={<Detail />} />
+          <Route path="history" element={<History />} />
           <Route path="danhMuc/:idCategory" element={<CategoryProducts />} />
         </Route>
       </Routes>
