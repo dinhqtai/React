@@ -7,8 +7,6 @@ import AdminLayout from "./components/layout/admin";
 import Register from "./users/register";
 
 import Cart from "./users/cart";
-
-import ListDiscountCode from "./admin/discountCode/listDiscountCode";
 import CategoryProducts from "./users/category";
 import Contact from "./users/contact";
 import Shop from "./users/shop";
@@ -28,7 +26,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />}>
-          <Route path="/discount" element={<ListDiscountCode />}></Route>
           <Route index element={<Home />} />
           <Route path="cart" element={<Cart />} />
           <Route path="contact" element={<Contact />} />

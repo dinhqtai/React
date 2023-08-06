@@ -2,24 +2,14 @@ import { useEffect, useState } from "react"
 import { IProduct } from "../models"
 import { getAll, searchPriceSort, searchProductsName, } from "../api/products"
 import Product from "../components/products"
-import { ISearchProductName } from "../model/products"
+
 import { useForm } from "react-hook-form"
+import { ISearchProductName } from "../model/products"
+import { useFetchProductQuery } from "../services/products.service"
 const Shop = () => {
   const [products, setProducts] = useState<IProduct[]>([])
-  const [mess, setMess] = useState("")
   const { register, handleSubmit } = useForm<ISearchProductName>({})
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const { data } = await getAll()
-        setProducts(data)
-
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    fetchProduct()
-  }, [])
+  const { data } = useFetchProductQuery()
   const sortPrice = async () => {
     try {
       const { data } = await searchPriceSort()
@@ -32,7 +22,6 @@ const Shop = () => {
     try {
       const search = await searchProductsName(data)
       if (search.data.checkSearchAll.length === 0) {
-        setMess("Sản phẩm không tồn tại")
         setProducts([])
       } else {
         setProducts(search.data.checkSearchAll)
@@ -69,10 +58,10 @@ const Shop = () => {
         </div>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        {products ? products.map(product => <Product
-          data={product}
+        {data ? data.map(product => <Product
+          product={product}
           key={product._id} />) : null}
-        {mess}
+
       </div>
     </div>
   </>

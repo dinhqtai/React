@@ -1,41 +1,21 @@
 import { useEffect, useState } from "react";
 import { IProduct } from "../models";
-import { getAll, searchProducts, searchProductsName, searchProductsNameOne } from "../api/products";
-import { getAllCategory } from "../api/category";
-import { ICategory } from "../model/category";
+import { searchProducts, searchProductsName, searchProductsNameOne } from "../api/products";
 import Product from "../components/products";
 import Category from "../components/category";
 import { useForm } from "react-hook-form";
 import { ISearchProductName } from "../model/products";
-import { NavLink } from "react-router-dom";
 import SliderImage from "../components/layout/Users/slider";
+import { useFetchProductQuery } from "../services/products.service";
+import { useGetCategoriesQuery } from "../services/category.service";
+import { date } from "yup";
 const Home = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const [category, setCategory] = useState<ICategory[]>([]);
+  const { data: fetchProducts } = useFetchProductQuery()
+  const { data: getCategory } = useGetCategoriesQuery()
   const { register, handleSubmit } = useForm<ISearchProductName>()
   const formatter = (value: number) =>
     `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const { data } = await getAll();
-        setProducts(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchProduct();
-    const fetchCategory = async () => {
-      try {
-        const { data } = await getAllCategory();
-        setCategory(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchCategory();
-    window.scrollTo(0, 0);
-  }, []);
   const onSubmit = async (data: ISearchProductName) => {
     try {
       const search = await searchProductsName(data);
@@ -58,6 +38,7 @@ const Home = () => {
       console.log(errors);
     }
   };
+  window.scrollTo(0, 0);
   return (
     <>
       <SliderImage />
@@ -88,7 +69,7 @@ const Home = () => {
         <h2 className="text-center font-bold text-[30px]">Danh Mục</h2>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 space-y-10 md:space-y-0 my-10">
-          {category && category.length > 0 ? category.map(category => <Category data={category} key={category._id} />) : (
+          {getCategory && getCategory.length > 0 ? getCategory.map(category => <Category data={category} key={category._id} />) : (
             <div>Không có dữ liệu</div>
           )
           }
@@ -140,8 +121,8 @@ const Home = () => {
         <h2 className="text-center font-bold text-[30px]">iPhone</h2>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 space-y-10 md:space-y-0 my-10">
-          {products && products.length > 0 ? (
-            products.map(product => <Product product={product} key={product._id} />
+          {fetchProducts && fetchProducts.length > 0 ? (
+            fetchProducts.map(product => <Product product={product} key={product._id} />
             )
           ) : (
             <div>Không có dữ liệu</div>
