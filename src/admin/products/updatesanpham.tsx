@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { Button, Form, Input, InputNumber, message, Select } from "antd";
-import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import { IProduct } from "../../models";
 import { getById, putId } from "../../api/products";
 import { getAllCategory } from "../../api/category";
+import { useGetByIdCategoryQuery } from "../../services/category.service";
+import { useGetProductIDQuery } from "../../services/products.service";
 
 export const AdminEditProduct = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState();
+  const { data: getProductID } = useGetProductIDQuery(String(id))
   const [cate, setCate] = useState();
   const navigate = useNavigate();
 
@@ -48,12 +49,6 @@ export const AdminEditProduct = () => {
   };
 
   useEffect(() => {
-    let getProduct = async () => {
-      const { data } = await getById(id as string);
-      setProduct(data);
-    };
-    getProduct();
-
     let getCate = async () => {
       const { data } = await getAllCategory();
       setCate(data.map((c: any) => ({ value: c._id, label: c.name })));
@@ -68,14 +63,14 @@ export const AdminEditProduct = () => {
       </div>
 
       <div className="mt-5">
-        {product ? (
+        {getProductID ? (
           <Form
             {...layout}
             name="nest-messages"
             onFinish={onFinish}
             style={{ maxWidth: 950 }}
             validateMessages={validateMessages}
-            initialValues={product}
+            initialValues={getProductID}
           >
             <Form.Item name="_id" label="Mã sản phẩm">
               <Input disabled />

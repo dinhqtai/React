@@ -6,7 +6,6 @@ import type { ColumnsType } from "antd/es/table";
 import { NavLink } from "react-router-dom";
 import { deleteId, getAll } from "../../api/products";
 import { IProduct } from "../../models";
-import { getAllCategory, getByIdCategory } from "../../api/category";
 
 interface DataType {
   key: string;
@@ -141,11 +140,6 @@ export const ListPhone: React.FC = () => {
       let { data } = await getAll();
       setProducts(
         data.map((item: IProduct) => {
-          // // const fetchCategory = async () => {
-          // //   const { data } = await getByIdcategory(item.category_id)
-          // // }
-          // fetchCategory()
-          //Chưa biết fix
           return {
             key: item._id,
             name: item.name,

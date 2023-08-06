@@ -13,6 +13,11 @@ const productAPI = createApi({
             query: () => "/products/",
             providesTags: ["products"]
         }),
+        getProductID: builder.query<IProduct[], string>({
+            query: (id) => `/products/${id}`,
+            providesTags: ["products"]
+        })
+        ,
         searchProductsCategory: builder.query<IProduct[], ISearchProduct>({
             query: (body) => ({
                 url: "/searchProductCategory/",
@@ -24,5 +29,5 @@ const productAPI = createApi({
     })
 
 })
-export const { useFetchProductQuery, useSearchProductsCategoryQuery } = productAPI
+export const { useFetchProductQuery, useSearchProductsCategoryQuery, useGetProductIDQuery } = productAPI
 export default productAPI
