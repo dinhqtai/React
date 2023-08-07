@@ -8,7 +8,8 @@ const UserAPI = createApi({
     tagTypes: ["user"],
     endpoints: builder => ({
         getUsers: builder.query<IUser[], void>({
-            query: () => "/user/"
+            query: () => "/user/",
+            providesTags: ["user"]
         }),
         SignUp: builder.mutation<void, SignupForm>({
             query: (body) => ({
@@ -16,6 +17,7 @@ const UserAPI = createApi({
                 method: "POST",
                 body
             }),
+            invalidatesTags: ["user"]
         }),
         SignIn: builder.mutation<void, SigninForm>({
             query: (body) => ({
@@ -23,6 +25,7 @@ const UserAPI = createApi({
                 method: "POST",
                 body
             }),
+            invalidatesTags: ["user"]
         })
     })
 })
