@@ -1,10 +1,10 @@
 import { IHistory } from "../model/history";
 import { useDeleteHistoryMutation, useGetHistoryQuery } from "../services/history.service"
+import { useGetUsersHistoryQuery } from "../services/user.service";
 const HistoryPage = () => {
     const userString = localStorage.getItem("user");
     const user = JSON.parse(userString as any);
-    const searchData: IHistory = { user_id: user._id };
-    const { data } = useGetHistoryQuery(searchData as any)
+    const { data } = useGetUsersHistoryQuery(user._id)
     const [deleteHistory] = useDeleteHistoryMutation()
     const handlerDelete = (id: string) => {
         deleteHistory(id).unwrap().then(() => { alert('Đã xóa thành công:'); })
@@ -19,29 +19,29 @@ const HistoryPage = () => {
             <div className="mt-4 space-y-6">
                 <ul className="space-y-4">
                     {data?.map((data) =>
-                        <li key={data._id} className="flex items-center gap-4">
+                        <li key={data?._id?._id} className="flex items-center gap-4">
                             <div>
                                 <h3 className="text-sm text-gray-900">Đơn hàng của bạn</h3>
                                 <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
                                     <div>
                                         <dt className="inline">Địa chỉ: </dt>
-                                        <dd className="inline">{data.diaChi}</dd>
+                                        <dd className="inline">{data?._id?.diaChi}</dd>
                                     </div>
 
                                     <div>
                                         <dt className="inline">Mã đơn hàng: </dt>
-                                        <dd className="inline">{data.cart_id?._id}</dd>
+                                        <dd className="inline">{data?._id?.cart_id}</dd>
                                     </div>
 
                                     <div>
                                         <dt className="inline">Trạng thái đơn hàng: </dt>
-                                        <dd className="inline">{data.status}</dd>
+                                        <dd className="inline">{data?._id?.status}</dd>
                                     </div>
                                 </dl>
                             </div>
 
                             <div className="flex flex-1 items-center justify-end gap-2">
-                                <button onClick={() => handlerDelete(data?._id)} className="text-gray-600 transition hover:text-red-600">
+                                <button onClick={() => handlerDelete(data?._id?._id)} className="text-gray-600 transition hover:text-red-600">
                                     <span className="sr-only">Remove item</span>
 
                                     <svg

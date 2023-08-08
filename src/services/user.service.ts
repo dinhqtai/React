@@ -11,6 +11,18 @@ const UserAPI = createApi({
             query: () => "/user/",
             providesTags: ["user"]
         }),
+        getUsersId: builder.query({
+            query: (id: string) => ({
+                url: `/user/${id}`,
+            }),
+            providesTags: ["user"]
+        }),
+        getUsersHistory: builder.query({
+            query: (id: string) => ({
+                url: `/userHistory/${id}`,
+            }),
+            providesTags: ["user"]
+        }),
         SignUp: builder.mutation<void, SignupForm>({
             query: (body) => ({
                 url: "/signup",
@@ -29,5 +41,5 @@ const UserAPI = createApi({
         })
     })
 })
-export const { useGetUsersQuery, useSignUpMutation, useSignInMutation } = UserAPI
+export const { useGetUsersHistoryQuery, useGetUsersIdQuery, useGetUsersQuery, useSignUpMutation, useSignInMutation } = UserAPI
 export default UserAPI
