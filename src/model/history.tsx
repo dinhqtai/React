@@ -13,7 +13,8 @@ export enum Status {
 }
 interface UsersHistory {
     _id?: string,
-    name?: string
+    name?: string,
+    email?: string
 }
 interface CartHistory {
     _id?: string

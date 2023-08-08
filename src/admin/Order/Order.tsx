@@ -12,13 +12,6 @@ import {
     Image,
     Space,
 } from "antd";
-
-import {
-    deleteIdCategory,
-    getAllCategory,
-    postIdcategory,
-    putIdcategory,
-} from "../../api/category";
 import { ICategory } from "../../model/category";
 import { NavLink } from "react-router-dom";
 import { IHistory } from "../../model/history";
@@ -85,7 +78,7 @@ export const AdminOrder = () => {
                 data.map((item: IHistory) => {
                     return {
                         key: item._id,
-                        user_id: item.user_id?.name,
+                        user_id: item.user_id?.email,
                         cart_id: item.cart_id._id,
                         diaChi: item.diaChi,
                         status: item.status,

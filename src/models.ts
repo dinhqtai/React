@@ -1,8 +1,16 @@
 import * as Yup from "yup";
+export interface ISearchProduct {
+  category_id: string;
+}
+
+export interface ISearchProductName {
+  priceMax: string;
+  priceMin: string;
+}
 export interface IProduct {
   _id: string;
   name: string;
-  price: number;
+  price: number,
   desc: string;
   images: string;
   category_id: ICategory;
@@ -48,6 +56,19 @@ export interface searchDiscount {
 export interface ISpecification {
   name: string;
   attributes: { code: string; name: string; value: string }[];
+}
+export interface ICategory {
+  _id: string;
+  name: string;
+  image: string;
+}
+export interface AddCategory {
+  name: string;
+  image: string;
+}
+export interface UpdateCategory {
+  name: string;
+  image: string;
 }
 export const signupSchema = Yup.object({
   name: Yup.string().max(15, "Tối đa 15 kí tự").min(5, "Tối thiểu 5 kí tự").required(),
