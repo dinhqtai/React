@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import { IProduct } from "../models";
+import { IProduct, ISearchProductName } from "../models";
 import { searchProducts, searchProductsName, searchProductsNameOne } from "../api/products";
 import Product from "../components/products";
 import Category from "../components/category";
 import { useForm } from "react-hook-form";
-import { ISearchProductName } from "../model/products";
 import SliderImage from "../components/layout/Users/slider";
 import { useFetchProductQuery } from "../services/products.service";
 import { useGetCategoriesQuery } from "../services/category.service";
-import { date } from "yup";
 const Home = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const { data: fetchProducts } = useFetchProductQuery()

@@ -59,7 +59,7 @@ export interface ISpecification {
 }
 export interface ICategory {
   _id: string;
-  name: string;
+  name?: string;
   image: string;
 }
 export interface AddCategory {

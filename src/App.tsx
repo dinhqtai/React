@@ -21,7 +21,6 @@ import { AdminShowCategory } from "./admin/categories/ListCate";
 import History from "./users/history";
 import { AdminOrder } from "./admin/Order/Order";
 import { EditOrder } from "./admin/Order/Edit";
-import { SearchPage } from "./users/Search/search";
 function App() {
   return (
     <BrowserRouter>
@@ -35,10 +34,6 @@ function App() {
           <Route path="detail/:id" element={<Detail />} />
           <Route path="history" element={<History />} />
           <Route path="danhMuc/:idCategory" element={<CategoryProducts />} />
-          <Route
-            path="/search/keyword/:searchValue?"
-            element={<SearchPage />}
-          />
         </Route>
       </Routes>
       <Routes>

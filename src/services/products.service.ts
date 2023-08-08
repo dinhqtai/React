@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import instance from "../api"
-import { IProduct } from "../models"
-import { ISearchProduct } from "../model/products"
+import { IProduct, ISearchProduct } from "../models"
 const productAPI = createApi({
     reducerPath: "products",
     baseQuery: fetchBaseQuery({
@@ -13,9 +12,9 @@ const productAPI = createApi({
             query: () => "/products/",
             providesTags: ["products"]
         }),
-        getProductID: builder.query<IProduct[], string>({
+        getProductID: builder.query<IProduct, string>({
             query: (id) => `/products/${id}`,
-            providesTags: ["products"]
+            providesTags: ['products'],
         })
         ,
         searchProductsCategory: builder.query<IProduct[], ISearchProduct>({
@@ -25,6 +24,9 @@ const productAPI = createApi({
                 body
             }),
             providesTags: ["products"]
+        }),
+        searchProductsName: builder.query<IProduct[], void>({
+            query: () => "/searchProductName/",
         })
     })
 

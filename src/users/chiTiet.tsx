@@ -1,27 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { IProduct } from "../models";
-import { useParams } from "react-router-dom";
-import { getById, searchProductsCategoryDetail } from "../api/products";
-import { ISearchProduct } from "../model/products";
 
+import { useParams } from "react-router-dom";
+import { useGetProductIDQuery } from "../services/products.service";
 const Detail = () => {
-  const [product, setProduct] = useState<IProduct>({} as IProduct);
-  const [productCategory, setProductCategory] = useState<IProduct[]>([]);
   const { id } = useParams();
-  useEffect(() => {
-    const fetchProductById = async () => {
-      const { data } = await getById(String(id));
-      setProduct(data);
-    };
-    fetchProductById();
-    const fetchProductCategory = async () => {
-      const searchData: ISearchProduct = { category_id: product.category_id };
-      const { data } = await searchProductsCategoryDetail(searchData);
-      setProductCategory(data);
-    };
-    fetchProductCategory();
-    window.scrollTo(0, 0);
-  }, [id]);
+  const { data } = useGetProductIDQuery(id as string)
   return (
     <>
       <nav aria-label="Breadcrumb " className="bg-[#F5F5F7]">
@@ -98,32 +80,32 @@ const Detail = () => {
             <div className="grid grid-cols-2   p-6  gap-4 md:grid-cols-1">
               <img
                 alt="Les Paul"
-                src={product.images}
+                src={data?.images}
                 className="aspect-square bg-[#F5F5F7]  p-6 w-full rounded-xl object-cover"
               />
 
               <div className="grid grid-cols-4 gap-4 lg:mt-4">
                 <img
                   alt="Les Paul"
-                  src={product.images}
+                  src={data?.images}
                   className="aspect-square w-full rounded-xl object-cover"
                 />
 
                 <img
                   alt="Les Paul"
-                  src={product.images}
+                  src={data?.images}
                   className="aspect-square w-full rounded-xl object-cover"
                 />
 
                 <img
                   alt="Les Paul"
-                  src={product.images}
+                  src={data?.images}
                   className="aspect-square w-full rounded-xl object-cover"
                 />
 
                 <img
                   alt="Les Paul"
-                  src={product.images}
+                  src={data?.images}
                   className="aspect-square w-full rounded-xl object-cover"
                 />
               </div>
@@ -131,13 +113,13 @@ const Detail = () => {
 
             <div className="">
               <strong className="rounded-full border border-blue-600 bg-gray-100 px-3 py-0.5 text-xs font-medium tracking-wide text-blue-600">
-                {product.category_id}
+                {data?.category_id?.name}
               </strong>
 
               <div className="mt-8 flex justify-between">
                 <div className="max-w-[35ch] space-y-2">
                   <h1 className="text-xl font-bold sm:text-2xl">
-                    {product.name}
+                    {data?.name}
                   </h1>
 
                   <p className="text-[14px] text-[#007bff] ">171 đánh giá</p>
@@ -190,12 +172,12 @@ const Detail = () => {
                   </div>
                 </div>
 
-                <p className="text-lg font-bold">{product.price} đ</p>
+                <p className="text-lg font-bold">{data?.price} đ</p>
               </div>
 
               <div className="mt-4">
                 <div className="prose max-w-none">
-                  <p>{product.desc}</p>
+                  <p>{data?.desc}</p>
                 </div>
 
                 <button className="mt-2 text-sm font-medium underline">

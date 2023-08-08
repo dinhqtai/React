@@ -1,6 +1,5 @@
 import instance from ".";
-import { ISearchProduct, ISearchProductName } from "../model/products";
-import { IProduct, postProducts, updateForm } from "../models";
+import { IProduct, ISearchProduct, ISearchProductName, postProducts, updateForm } from "../models";
 
 export const getAll = () => {
   const uri = "/products";

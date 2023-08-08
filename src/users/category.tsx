@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
-import { ISearchProduct } from "../model/products"
 import { useSearchProductsCategoryQuery } from "../services/products.service"
 import { useGetByIdCategoryQuery } from "../services/category.service"
 import Product from "../components/products"
 import { useEffect } from "react"
+import { ISearchProduct } from "../models"
 const CategoryProducts = () => {
     const { idCategory } = useParams()
     const { data } = useGetByIdCategoryQuery(String(idCategory))
