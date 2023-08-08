@@ -17,6 +17,8 @@ const AddCate: React.FC = () => {
 
   const onFinish = async (values: ICategory) => {
     const put = await putIdcategory(id as string, values);
+    console.log(put);
+
     if (put) {
       message.success("Cập nhật danh mục thành công!");
       setTimeout(() => {

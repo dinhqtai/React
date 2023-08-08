@@ -77,7 +77,6 @@ export const AdminShowCategory = () => {
   useEffect(() => {
     async function fetchProduct() {
       let { data } = await getAllCategory();
-
       setData(
         data.map((item: ICategory) => {
           return {

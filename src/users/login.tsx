@@ -17,9 +17,10 @@ const Login = () => {
     const onSubmit = async (data: SigninForm) => {
         try {
             const result = await signIn(data);
+            localStorage.setItem("user", JSON.stringify(result.data.users))
             console.log(result);
             if (result.data.users.role === "member") {
-                navigate(`/member`);
+                navigate(`/`);
             } else if (result.data.users.role === "admin") {
                 navigate(`/admin`);
             }

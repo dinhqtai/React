@@ -1,11 +1,9 @@
-import { useState } from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./users/home";
 import Login from "./users/login";
-import UserLayout from "./components/layout/user";
 import AdminLayout from "./components/layout/admin";
 import Register from "./users/register";
-
 import Cart from "./users/cart";
 import CategoryProducts from "./users/category";
 import Contact from "./users/contact";
@@ -16,12 +14,13 @@ import { Addsanpham } from "./admin/products/addsanpham";
 import { AdminEditProduct } from "./admin/products/updatesanpham";
 import AddCate from "./admin/categories/AddCate";
 import UpdateCate from "./admin/categories/UpdateCate";
-import AddUser from "./admin/users/AddUser";
 import { AdminUser } from "./admin/users/ListUser";
 import Detail from "./users/chiTiet";
 import MainPage from "./components/layout/Users/MainPage";
 import { AdminShowCategory } from "./admin/categories/ListCate";
 import History from "./users/history";
+import { AdminOrder } from "./admin/Order/Order";
+import { EditOrder } from "./admin/Order/Edit";
 function App() {
   return (
     <BrowserRouter>
@@ -40,6 +39,8 @@ function App() {
       <Routes>
         <Route path="/admin" element={<AdminLayout />}>
           <Route index path="product" element={<ListPhone />} />
+          <Route path="order" element={<AdminOrder />} />
+          <Route path="order/edit/:id" element={<EditOrder />} />
           <Route path="product/create" element={<Addsanpham />} />
           <Route path="product/edit/:id" element={<AdminEditProduct />} />
           <Route path="category" element={<AdminShowCategory />} />

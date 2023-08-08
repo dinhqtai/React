@@ -3,15 +3,21 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import productAPI from './services/products.service'
 import CategoryAPI from './services/category.service'
 import UserAPI from './services/user.service'
+import HistoryAPI from './services/history.service'
 
 export const store = configureStore({
     reducer: {
         products: productAPI.reducer,
         category: CategoryAPI.reducer,
-        user: UserAPI.reducer
+        user: UserAPI.reducer,
+        history: HistoryAPI.reducer
     },
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(productAPI.middleware).concat(CategoryAPI.middleware)
-        .concat(UserAPI.middleware)
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware()
+            .concat(productAPI.middleware)
+            .concat(CategoryAPI.middleware)
+            .concat(UserAPI.middleware)
+            .concat(HistoryAPI.middleware),
 })
 
 setupListeners(store.dispatch)

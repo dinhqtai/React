@@ -38,7 +38,7 @@ const Home = () => {
       console.log(errors);
     }
   };
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   return (
     <>
       <SliderImage />

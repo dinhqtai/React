@@ -147,7 +147,7 @@ export const ListPhone: React.FC = () => {
             soLuong: item.soLuong,
             description: item.desc,
             images: item.images,
-            category_id: item.category_id
+            category_id: item.category_id?.name
           };
         })
       );

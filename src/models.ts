@@ -5,8 +5,11 @@ export interface IProduct {
   price: number;
   desc: string;
   images: string;
-  category_id: string;
+  category_id: ICategory;
   soLuong: string;
+}
+export interface ICategory {
+  name?: string;
 }
 export interface IDiscount {
   _id: string;
